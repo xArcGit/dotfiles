@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-tile ~/.config/style_folder/macintosh/wall/mac.png

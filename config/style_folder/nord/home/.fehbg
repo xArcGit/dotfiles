@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill ~/.config/style_folder/nord/wall/nord.png

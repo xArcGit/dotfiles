@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+for archivos in ~/.config/style_folder/bloom/config/*; do
+	cp -R "${archivos}" ~/.config/
+done
+
+cp -f "$HOME"/.config/style_folder/bloom/home/.fehbg "$HOME"
+
+rm -rf ~/.config/zathura/zathurarc
+
+chmod -R +x ~/.config
+chmod +x ~/.fehbg
+
+bspc wm -r
+pkill -USR1 -x sxhkd
