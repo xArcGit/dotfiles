@@ -74,7 +74,7 @@ clear
 # Install packages
 logo "Installing needed packages"
 
-dependencies=(alacritty bash bspwm dragon-drop dunst feh git gtk-engine-murrine gvfs gvfs-afc gvfs-mtp gvfs-smb htop brave-bin lmaofetch lxappearance-gtk3 mpc mpd mpv ncmpcpp nemo neovim networkmanager pamixer pavucontrol qogir-icon-theme ranger rofi scrot sed sxhkd udisks2 ttf-roboto-mono ttf-roboto-mono-nerd unzip xclip xdg-user-dirs-gtk xorg-xinit zathura zathura-pdf-mupdf zip)
+dependencies=(alacritty zsh bspwm dragon-drop dunst feh git gtk-engine-murrine gvfs gvfs-afc gvfs-mtp gvfs-smb htop brave-bin lmaofetch lxappearance-gtk3 mpc mpd mpv ncmpcpp nemo neovim networkmanager pamixer pavucontrol qogir-icon-theme ranger rofi scrot sed sxhkd udisks2 ttf-roboto-mono ttf-roboto-mono-nerd unzip xclip xdg-user-dirs-gtk xorg-xinit zathura zathura-pdf-mupdf zip picom-simpleanims-next-git)
 
 is_installed() {
 	pacman -Qi "$1" &>/dev/null

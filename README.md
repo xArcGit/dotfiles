@@ -1,6 +1,6 @@
 # **dotfiles**
 
-<img src="https://github.com/p3nguin-kun/penguinRice/assets/123321507/34dc27ab-7e0c-4c94-b478-e57c48ee54bf" width="65%" align="right">
+<img src="./image/main.png" width="65%" align="right">
 
 | **wm**      | [bspwm](https://github.com/baskerville/bspwm)                                     |
 | :---------- | :-------------------------------------------------------------------------------- |
