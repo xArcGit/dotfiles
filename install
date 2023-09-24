@@ -107,12 +107,9 @@ clear
 # Downloading dotfiles
 logo "Downloading dotfiles"
 [ -d ~/dotfiles ] && rm -rf ~/dotfiles
-printf "Cloning rice from https://github.com/p3nguin-kun/penguinDotfiles\n"
+printf "Cloning rice\n"
 cd
-git clone --depth=1 https://github.com/p3nguin-kun/dotfiles.git
-printf "Cloning rice from https://github.com/p3nguin-kun/penguinFox-Librewolf\n"
-cd
-git clone --depth=1 https://github.com/p3nguin-kun/penguinFox-Librewolf.git
+git clone --depth=1 https://github.com/kagerou-hikari/plane-dotfiles.git
 printf "%s%sDone!!%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
 clear
