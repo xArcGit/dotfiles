@@ -7,7 +7,7 @@
 | **term**             | [kitty](https://sw.kovidgoyal.net/kitty/)              |
 | **fileman**          | [ranger](https://ranger.github.io/)                    |
 | **brouser**          | [librewolf](https://www.librewolf.net/)                |
-| **editor tui **      | [astronvim](https://astronvim.com/)                    |
+| **editor tui**      | [astronvim](https://astronvim.com/)                    |
 | **editor gui**       | [vscodium](https://vscodium.com/)                      |
 | **pdf**              | [zathura](https://pwmt.org/projects/zathura/)          |
 | **video**            | [mpv](https://mpv.io)                                  |
