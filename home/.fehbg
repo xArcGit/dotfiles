@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill ~/.config/style_folder/macaroni/wall/macaroni.png
+feh --no-fehbg --bg-fill '/home/minenique/Pictures/Wallpapers/b-080.jpg' 

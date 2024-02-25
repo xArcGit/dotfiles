@@ -74,7 +74,7 @@ clear
 # Install packages
 logo "Installing needed packages"
 
-dependencies=(alacritty zsh thunar bspwm dragon-drop dunst feh git gtk-engine-murrine gvfs gvfs-afc gvfs-mtp gvfs-smb htop brave-bin lmaofetch lxappearance-gtk3 mpc mpd mpv ncmpcpp nemo neovim networkmanager pamixer pavucontrol qogir-icon-theme ranger rofi scrot sed sxhkd udisks2 ttf-roboto-mono ttf-roboto-mono-nerd unzip xclip xdg-user-dirs-gtk xorg-xinit zathura zathura-pdf-mupdf zip picom-simpleanims-next-git)
+dependencies=(kitty zsh bspwm ly cerebro-bin pywal-git dragon-drop ibus-daemon bibata-cursor-theme polkit-gnome dunst feh git gtk-engine-murrine gvfs gvfs-afc gvfs-mtp gvfs-smb htop librewolf lmaofetch lxappearance mpc mpd mpv ncmpcpp neovim networkmanager pamixer pavucontrol qogir-icon-theme ranger rofi scrot sed sxhkd udisks2 ttf-roboto-mono ttf-roboto-mono-nerd unzip xclip xdg-user-dirs-gtk xorg-xinit zathura zathura-pdf-mupdf zip picom-simpleanims-next-git vscodium-bin )
 
 is_installed() {
 	pacman -Qi "$1" &>/dev/null
@@ -108,12 +108,11 @@ clear
 logo "Downloading dotfiles"
 [ -d ~/dotfiles ] && rm -rf ~/dotfiles
 printf "Cloning rice\n"
-cd
-git clone --depth=1 https://github.com/kagerou-hikari/plane-dotfiles.git
+cd "$HOME"
+git clone --depth=1 https://github.com/MineNique/plane-dotfiles.git
 printf "%s%sDone!!%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
 clear
-
 
 # Backup dotfiles
 logo "Backing-up dotfiles"
@@ -124,7 +123,7 @@ if [ ! -d "$backup_folder" ]; then
 	mkdir -p "$backup_folder"
 fi
 
-for folder in alacritty bspwm btop gtk-3.0 gtk-4.0 mpd ncmpcpp neovim picom ranger rofi style style_folder sxhkd zathura; do
+for folder in kitty bspwm btop gtk-2.0 gtk-3.0 gtk-4.0 mpd ncmpcpp neovim ranger style style_folder zathura; do
 	if [ -d "$HOME/.config/$folder" ]; then
 		mv "$HOME/.config/$folder" "$backup_folder/${folder}_$date"
 		echo "$folder folder backed up successfully at $backup_folder/${folder}_$date"
@@ -134,8 +133,8 @@ for folder in alacritty bspwm btop gtk-3.0 gtk-4.0 mpd ncmpcpp neovim picom rang
 done
 
 for folder in wallpapers; do
-	if [ -d "$HOME"/$folder ]; then
-		mv "$HOME"/$folder "$backup_folder"/${folder}_$date
+	if [ -d "$HOME"/Pictures/$folder ]; then
+		mv "$HOME"/Pictures/$folder "$backup_folder"/${folder}_$date
 		echo "$folder folder backed up successfully at $backup_folder/${folder}_$date"
 	else
 		echo "The folder $folder does not exist in $HOME"
@@ -143,42 +142,85 @@ for folder in wallpapers; do
 done
 
 
-[ -f ~/.bashrc ] && mv ~/.bashrc ~/.RiceBackup/.bashrc-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
+[ -f ~/.zshrc ] && mv ~/.zshrc ~/.RiceBackup/.zshrc-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
 [ -f ~/.fehbg ] && mv ~/.fehbg ~/.RiceBackup/.fehbg-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
 printf "%s%sDone!!%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
 clear
 
+
+# Install Zsh
+logo "Configuring Zsh.."
+printf "Installing ohmyzsh..\n"
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+printf "Installing zsh-autosuggestions..\n"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+printf "Installing zsh-syntax-highlighting..\n"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+printf "Installing zsh-history-substring-search..\n"
+ git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+
+printf "Installing autoswitch_virtualenv..\n"
+git clone https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/autoswitch_virtualenv
+
+printf "Installing you-should-use..\n"
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
+
+printf "Installing auto-notify..\n"
+git clone https://github.com/MichaelAquilina/zsh-auto-notify.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/auto-notify
+
+printf "Installing prompt..\n"
+curl -sS https://starship.rs/install.sh | sh
+
+# Install wallpapers
+logo "Cloning wallpapers.."
+git clone https://github.com/whoisYoges/lwalpapers.git "$HOME"/lwalpapers
+mkdir "$HOME"/Pictures/walpapers
+mv "$HOME"/lwalpapers/walpapers/* "$HOME"/Pictures/walpapers
+rm -rf "$HOME"/lwalpapers
+
 # Installing dotfiles
 logo "Installing dotfiles.."
 printf "Copying files to respective directories..\n"
 
-[ ! -d ~/.config ] && mkdir -p ~/.config
-[ ! -d ~/.fonts ] && mkdir -p ~/.fonts
-[ ! -d ~/.themes ] && mkdir -p ~/.themes
-[ ! -d ~/.local/share/applications ] && mkdir -p ~/.local/share/applications
+[ ! -d ~/.config ] && mkdir -p "$HOME"/.config
+[ ! -d ~/.fonts ] && mkdir -p "$HOME"/.fonts
+[ ! -d ~/.local/share/applications ] && mkdir -p "$HOME"/.local/share/applications
 
-for archivos in ~/dotfiles/config/*; do
-	cp -R "${archivos}" ~/.config/
+for archivos in "$HOME"/dotfiles/config/*; do
+	cp -r "${archivos}" "$HOME"/.config/
 	if [ $? -eq 0 ]; then
-		printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
+		printf "%s%s%s folder copied successfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
 	else
 		printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
 		sleep 1
 	fi
 done
 
-for archivos in ~/dotfiles/themes/*; do
-	cp -R "${archivos}" ~/.themes/
+for archivos in "$HOME"/dotfiles/home/*; do
+	cp -r "${archivos}" "$HOME"/
 	if [ $? -eq 0 ]; then
-		printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
+		printf "%s%s%s folder copied successfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
 	else
 		printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
 		sleep 1
 	fi
 done
 
-cp -f "$HOME"/dotfiles/home/.fehbg "$HOME"
+for archivos in "$HOME"/dotfiles/themes/*; do
+	sudo cp -r "${archivos}" /usr/share/themes/
+	if [ $? -eq 0 ]; then
+		printf "%s%s%s folder copied successfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
+	else
+		printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
+		sleep 1
+	fi
+done
+
 printf "%s%sDone!\n\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
 clear
@@ -186,11 +228,12 @@ clear
 # Configuring dotfiles
 logo "Configuring dotfiles"
 chmod -R +x ~/.config/
-rm -rf ~/.xinitrc
-touch ~/.xinitrc
-printf "#!/bin/sh\nexec bspwm" >> ~/.xinitrc
 chmod +x ~/.xinitrc
-printf "Xcursor.theme: Qogir-dark\nXcursor.size: 16" >> ~/.Xresources
+[ -d ~/.ssh ] && chmod  0700 ~/.ssh
+[ -d ~/.gnupg ] && chmod  0700 ~/.gnupg
+mkdir ~/.cache/zsh
+touch ~/.cache/zsh/zhistory 
+[ -d ~/.cache/zsh/zhistory ] && chmod 0600 ~/.cache/zsh/zhistory
 printf "%s%sDone!\n\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
 clear
@@ -208,6 +251,7 @@ logo "Enabling services"
 systemctl --user enable mpd.service
 systemctl --user start mpd.service
 sudo systemctl enable NetworkManager
+sudo systemctl enable ly.service
 systemctl --user enable pipewire pipewire-pulse wireplumber
 printf "%s%sDone!%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2

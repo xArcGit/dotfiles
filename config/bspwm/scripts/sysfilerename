@@ -1,0 +1,22 @@
+#!/bin/bash
+
+directory="."
+
+extension="$2"
+
+format="$1-%03d.$2"
+
+counter=1
+
+if [ "$(find "$directory" -maxdepth 1 -type f -name "*.$extension" | wc -l)" -eq 0 ]; then
+    echo "No files with the .$extension extension found in $directory"
+    exit 1
+fi
+
+for file in "$directory"/*."$extension"; do
+    new_name=$(printf "$format" "$counter")
+    mv "$file" "$directory/$new_name"
+    ((counter++))
+done
+
+echo "Renaming complete."
