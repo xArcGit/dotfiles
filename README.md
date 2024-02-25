@@ -63,7 +63,7 @@ startx
 
 # **colorschemes**
 
-there are 10 colorschemes included in my dotfiles, you can apply it by pressing `Alt + Space`
+there are pywal based colorschemes in my dotfiles, you can apply it by using `bspwal`
 
 |                          |                          |                          |
 | ------------------------ | ------------------------ | ------------------------ |
