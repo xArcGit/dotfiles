@@ -63,7 +63,7 @@ startx
 
 # **colorschemes**
 
-there are pywal based colorschemes in my dotfiles, you can apply it by using `bspwal`
+there are pywal based colorschemes in my dotfiles, you can apply it by using `bspwall`
 
 |                          |                          |                          |
 | ------------------------ | ------------------------ | ------------------------ |
