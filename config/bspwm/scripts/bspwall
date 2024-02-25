@@ -53,6 +53,8 @@ function handle_exit {
     wal -n -i "$wal_name"
     # creating colorscheme for zathura
     genzathurarc
+    # creating colorscheme for rofi
+    genroficolors
     # creating dunstrc for dunst
     gendunstrc
     # Applying wallpaper to lockscreen
@@ -65,6 +67,8 @@ while true; do
     case "$keypress" in
         '.') right_action ;; 
         ',') left_action ;;  
+        '>') right_action ;; 
+        '<') left_action ;;
         *)  
             if [[ "$keypress" == '/' || "$keypress" == 'q' ]]; then
                 handle_exit

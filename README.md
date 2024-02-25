@@ -65,7 +65,7 @@ startx
 
 there are pywal based colorschemes in my dotfiles, you can apply it by using `bspwall`
 
-- use `.` for next , `,` for previous and `/` OR `q` for applying 
+- use `>` OR `.` for next , `<` OR `,` for previous and `/` OR `q` for applying 
 
 |                          |                          |                          |
 | ------------------------ | ------------------------ | ------------------------ |

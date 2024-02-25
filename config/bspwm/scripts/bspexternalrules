@@ -50,7 +50,7 @@ case "$class" in
 		eval "$consequences"
 		[ "$state" ] || echo "desktop=^6 follow=on"
 		;;
-	spotify|elisa|vlc)
+	spotify|elisa|mpv)
 		eval "$consequences"
 		[ "$state" ] || echo "desktop=^6 follow=on"
 		;;
