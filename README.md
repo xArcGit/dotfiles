@@ -1,9 +1,9 @@
 <!-- Title -->
 <h1 align="center"><strong>Dotfiles</strong></h1>
 
-<!-- Image -->
+<!-- Images -->
 <p align="center">
-  <img src="./image/img_06.png" width="65%">
+  <img src="./images/img_06.png" width="65%">
 </p>
 
 <!-- Description -->
@@ -85,19 +85,19 @@ These dotfiles include Pywal-based color schemes. You can apply them using [`bsp
 
 - Use `<` or `,` for the previous scheme, `>` or `.` for the next scheme and `/` or `q` to apply.
 <p align="center">
-  <img src="image/img_00.png" width="30%">
-  <img src="image/img_01.png" width="30%">
-  <img src="image/img_03.png" width="30%">
+  <img src="images/img_00.png" width="30%">
+  <img src="images/img_01.png" width="30%">
+  <img src="images/img_03.png" width="30%">
 </p>
 <p align="center">
-  <img src="image/img_04.png" width="30%">
-  <img src="image/img_05.png" width="30%">
-  <img src="image/img_06.png" width="30%">
+  <img src="images/img_04.png" width="30%">
+  <img src="images/img_05.png" width="30%">
+  <img src="images/img_06.png" width="30%">
 </p>
 <p align="center">
-  <img src="image/img_07.png" width="30%">
-  <img src="image/img_08.png" width="30%">
-  <img src="image/img_09.png" width="30%">
+  <img src="images/img_07.png" width="30%">
+  <img src="images/img_08.png" width="30%">
+  <img src="images/img_09.png" width="30%">
 </p>
 
 ## Tutorial
