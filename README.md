@@ -83,7 +83,7 @@ This repository contains dotfiles for configuring various components of a Linux 
 
 These dotfiles include Pywal-based color schemes. You can apply them using [`bspwall`](config/bspwm/scripts/bspwall).
 
-- Use `>` or `.` for the next scheme, `<` or `,` for the previous scheme, and `/` or `q` to apply.
+- Use `<` or `,` for the previous scheme, `>` or `.` for the next scheme and `/` or `q` to apply.
 <p align="center">
   <img src="image/img_00.png" width="30%">
   <img src="image/img_01.png" width="30%">
