@@ -77,6 +77,8 @@ This repository contains dotfiles for configuring various components of a Linux 
 
 7. You're done! Now you can enjoy a fully-featured floating/tiling window manager on your computer.
 
+**Note:** Edit `.xinitrc` file and change display settings.
+
 ## Color Schemes
 
 These dotfiles include Pywal-based color schemes. You can apply them using [`bspwall`](config/bspwm/scripts/bspwall).
