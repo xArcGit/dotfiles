@@ -111,4 +111,4 @@ This project is licensed under the [MIT License](LICENSE).
 ## Credit
 
 * [astronvim](https://astronvim.com/) for the neovim configs
-* [whoisYoges](https://github.com/whoisYoges/wallpapers.git) for wallpapers
+* [whoisYoges](https://github.com/whoisYoges/lwalpapers) for wallpapers

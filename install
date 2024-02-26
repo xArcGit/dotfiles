@@ -133,7 +133,7 @@ clear
 
 # Install wallpapers
 print_logo "Install wallpapers"
-git clone https://github.com/whoisYoges/wallpapers.git "$HOME"/wallpapers || { echo "Error: Unable to clone wallpapers repository"; sleep 2 && exit 1; }
+git clone https://github.com/whoisYoges/lwalpapers.git "$HOME"/wallpapers || { echo "Error: Unable to clone wallpapers repository"; sleep 2 && exit 1; }
 mkdir -p "$HOME"/Pictures/wallpapers
 mv "$HOME"/wallpapers/* "$HOME"/Pictures/wallpapers || { echo "Error: Unable to move wallpapers"; sleep 2 && exit 1;}
 rm -rf "$HOME"/wallpapers
