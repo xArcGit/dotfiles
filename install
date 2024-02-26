@@ -105,7 +105,7 @@ sleep 1
 mkdir -p "$backup_folder"
 
 # Backup specified config folders
-for folder in kitty bspwm btop gtk-2.0 gtk-3.0 gtk-4.0 mpd ncmpcpp neovim ranger qBittorrent zathura; do
+for folder in kitty bspwm htop gtk-2.0 gtk-3.0 gtk-4.0 mpd ncmpcpp neovim ranger qBittorrent zathura; do
     perform_backup "$HOME/.config/$folder" "$backup_folder/${folder}_$(date +%Y%m%d_%H%M%S)"
 done
 
