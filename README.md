@@ -100,7 +100,7 @@ These dotfiles include Pywal-based color schemes. You can apply them using [`bsp
 
 ## Tutorial
 
-These dotfiles include a keybinding list that you can access by clicking [here](/wiki/Keybindings).
+These dotfiles include a keybinding list that you can access by clicking [here](https://github.com/MineNique/plane-dotfiles/wiki/Keybindings).
 
 ## Contributing
 Contributions are welcome! Please feel free to open an issue or submit a pull request.
