@@ -54,11 +54,11 @@ This repository contains dotfiles for configuring various components of a Linux 
 
 2. Clone this repository:
     ```bash
-    git clone git@github.com:MineNique/plane-dotfiles.git
+    git clone git@github.com:MineNique/dotfiles.git
     ```
     or
     ```bash
-    git clone https://github.com/MineNique/plane-dotfiles.git
+    git clone https://github.com/MineNique/dotfiles.git
     ```
 
 3. Navigate to the dotfiles directory:
@@ -100,7 +100,7 @@ These dotfiles include Pywal-based color schemes. You can apply them using [`bsp
 
 ## Tutorial
 
-These dotfiles include a keybinding list that you can access by clicking [here](https://github.com/MineNique/plane-dotfiles/wiki/Keybindings).
+These dotfiles include a keybinding list that you can access by clicking [here](https://github.com/MineNique/dotfiles/wiki/Keybindings).
 
 ## Contributing
 Contributions are welcome! Please feel free to open an issue or submit a pull request.
