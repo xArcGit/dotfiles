@@ -227,7 +227,7 @@ sleep 2
 clear
 
 print_logo "Generate color scheme"
-print "Use ' > ' or  ' .  ' for the next scheme, ' < '  or ' ,  ' for the previous scheme, and/or q to apply."
+print "Use ' > ' or  ' .  ' for the next scheme, ' < '  or ' , ' for the previous scheme, and/or q to apply."
 . ./.config/bspwm/scripts/bspwall
 sleep 2
 clear
