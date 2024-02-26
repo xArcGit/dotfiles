@@ -31,14 +31,12 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-s
 source $ZSH/oh-my-zsh.sh
 
 alias mirrors="sudo reflector --verbose --latest 5 --country 'India' --age 6 --sort rate --save /etc/pacman.d/mirrorlist"
-alias clean="sudo pacman -Scc --noconfirm && yay -Sc --noconfirm && paru -Sc --noconfirm"
+alias clean="sudo pacman -Scc --noconfirm && yay -Sc --noconfirm"
 alias purga="sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av"
 alias update="sysupdates --update-system"
 alias list="sysupdates --print-updates"
 alias autoremove="sudo pacman -R $(pacman -Qdtq)"
 alias scan_wifi="nmcli dev wifi rescan && nmcli dev wifi"
-alias clock="peaclock --config-dir ~/.config/peaclock"
-
 
 # tools
 alias h='htop'
