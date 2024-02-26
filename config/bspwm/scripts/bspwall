@@ -63,17 +63,11 @@ function handle_exit {
 }
 
 while true; do
-    read_single_key keypress
+    read -rsn1 keypress
     case "$keypress" in
-        '.') right_action ;; 
-        ',') left_action ;;  
-        '>') right_action ;; 
-        '<') left_action ;;
-        *)  
-            if [[ "$keypress" == '/' || "$keypress" == 'q' ]]; then
-                handle_exit
-            fi
-            ;;
+        '.'|'>') right_action ;; 
+        ','|'<') left_action ;;  
+        '/'|'q') handle_exit ;;
+        *) ;;
     esac
 done
-

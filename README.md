@@ -1,80 +1,109 @@
-# **dotfiles**
+<!-- Title -->
+<h1 align="center"><strong>Dotfiles</strong></h1>
 
-<img src="./image/img_06.png" width="65%" align="right">
+<!-- Image -->
+<p align="center">
+  <img src="./image/img_06.png" width="65%">
+</p>
 
-| **wm**               | [bspwm](https://github.com/baskerville/bspwm)          |
-| :------------------- | :----------------------------------------------------- |
-| **term**             | [kitty](https://sw.kovidgoyal.net/kitty/)              |
-| **fileman**          | [ranger](https://ranger.github.io/)                    |
-| **brouser**          | [librewolf](https://www.librewolf.net/)                |
-| **editor tui**       | [astronvim](https://astronvim.com/)                    |
-| **editor gui**       | [vscodium](https://vscodium.com/)                      |
-| **pdf**              | [zathura](https://pwmt.org/projects/zathura/)          |
-| **video**            | [mpv](https://mpv.io)                                  |
-| **music**            | [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)          |
-| **fetch**            | [lmaofetch](https://github.com/p3nguin-kun/lmaofetch)  |
-| **sysmon**           | [htop](https://htop.dev/)                              |
-| **display manager**  | [ly](https://htop.dev/)                                |
+<!-- Description -->
+<p align="center">Fully-featured floating/tiling window manager-based dotfiles for Arch Linux</p>
 
-# **installation**
+<!-- Table of Contents -->
+## Table of Contents
 
-**note: you need to login as normal user to use this script**
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Color Schemes](#color-schemes)
+- [Usage](#usage)
+- [Tutorial](#tutorial)
+- [Contributing](#contributing)
+- [License](#license)
 
-1. install [Git](https://git-scm.com/) if you don't have it
+<!-- Introduction -->
+## Introduction
 
-```
-sudo pacman -S git
-```
+This repository contains dotfiles for configuring various components of a Linux system, including window managers, terminals, file managers, browsers, editors, and more.
 
-2. clone this repository
+### Included Components:
 
-```
-git clone git@github.com:MineNique/plane-dotfiles.git
-``` 
-- OR 
+| **Component**          | **Name**                                               |
+| :--------------------- | :----------------------------------------------------- |
+| **Window Manager**     | [bspwm](https://github.com/baskerville/bspwm)          |
+| **Terminal Emulator**  | [kitty](https://sw.kovidgoyal.net/kitty/)              |
+| **File Manager**       | [ranger](https://ranger.github.io/)                    |
+| **Browser**            | [librewolf](https://www.librewolf.net/)                |
+| **Text Editor (TUI)**  | [astronvim](https://astronvim.com/)                    |
+| **Text Editor (GUI)**  | [vscodium](https://vscodium.com/)                      |
+| **PDF Viewer**         | [zathura](https://pwmt.org/projects/zathura/)          |
+| **Video Player**       | [mpv](https://mpv.io)                                  |
+| **Music Player**       | [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)          |
+| **System Info**        | [lmaofetch](https://github.com/p3nguin-kun/lmaofetch)  |
+| **System Monitor**     | [htop](https://htop.dev/)                              |
+| **Display Manager**    | [ly](https://github.com/fairyglade/ly)                 |
 
-```
-git clone https://github.com/MineNique/plane-dotfiles.git
-```
+<!-- Installation -->
+## Installation
 
-3. go to dotfiles directory
+**Note:** You need to be logged in as a regular user to use this script.
 
-```
-cd dotfiles
-```
+1. Install [Git](https://git-scm.com/) if you don't have it:
+   ```bash
+   sudo pacman -S git
+   ```
 
-4. run this script
+2. Clone this repository:
+    ```bash
+    git clone git@github.com:MineNique/plane-dotfiles.git
+    ```
+    or
+    ```bash
+    git clone https://github.com/MineNique/plane-dotfiles.git
+    ```
 
-```
-chmod +x install && ./install
-```
+3. Navigate to the dotfiles directory:
+    ```bash
+    cd dotfiles
+    ```
 
-5. follow the instruction
+4. Run the installation script:
+    ```bash
+    chmod +x install && ./install
+    ```
 
-6. restart your computer
+5. Follow the on-screen instructions.
 
-7. done! Now you can use fully-featured floating/tiling window manager on your computer
+6. Restart your computer.
 
-**note**: if you dont have display manager (or login manager), you can login with xinit
+7. You're done! Now you can enjoy a fully-featured floating/tiling window manager on your computer.
 
-```
-startx
-```
+## Color Schemes
 
-# **colorschemes**
+These dotfiles include Pywal-based color schemes. You can apply them using [`bspwall`](config/bspwm/scripts/bspwall).
 
-there are pywal based colorschemes in my dotfiles, you can apply it by using `bspwall`
+- Use > or . for the next scheme, < or , for the previous scheme, and / or q to apply.
+<p align="center">
+  <img src="image/img_00.png" width="30%">
+  <img src="image/img_01.png" width="30%">
+  <img src="image/img_03.png" width="30%">
+</p>
+<p align="center">
+  <img src="image/img_04.png" width="30%">
+  <img src="image/img_05.png" width="30%">
+  <img src="image/img_06.png" width="30%">
+</p>
+<p align="center">
+  <img src="image/img_07.png" width="30%">
+  <img src="image/img_08.png" width="30%">
+  <img src="image/img_09.png" width="30%">
+</p>
 
-- use `>` OR `.` for next , `<` OR `,` for previous and `/` OR `q` for applying 
+## Tutorial
 
-|                          |                          |                          |
-| ------------------------ | ------------------------ | ------------------------ |
-| ![001](image/img_00.png) | ![002](image/img_01.png) | ![003](image/img_03.png) |
-| ![004](image/img_04.png) | ![005](image/img_05.png) | ![006](image/img_06.png) |
-| ![007](image/img_07.png) | ![008](image/img_08.png) | ![009](image/img_09.png) |
-|                          |                          |                          |
+These dotfiles include a keybinding list that you can access by clicking [here](/wiki/Keybindings).
 
+## Contributing
+Contributions are welcome! Please feel free to open an issue or submit a pull request.
 
-# **tutorial**
-
-- my dotfiles has a keybinding list, you can read it by pressing `` Super + ` `` or click [here](config/bspwm/sxhkdrc)
+## License
+This project is licensed under the [MIT License](LICENSE).

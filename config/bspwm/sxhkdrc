@@ -4,9 +4,6 @@ super + Return
 super + alt + p
 	bspcolorpicker
 
-super + n
-	thunar
-
 super + Escape
 	pkill -USR1 -x sxhkd
 
@@ -17,7 +14,7 @@ super + {_,shift + }q
 	bspc node -{c,k}
 
 super + w
-	brave	
+	librewolf	
 
 super + m
 	bspc desktop -l next
