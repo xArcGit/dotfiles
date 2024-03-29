@@ -1,1 +1,0 @@
-# DIR -> /usr/share/themes/

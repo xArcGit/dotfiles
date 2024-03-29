@@ -89,7 +89,7 @@ This repository contains dotfiles for configuring various components of a Linux 
 
 ## Color Schemes
 
-These dotfiles include Pywal-based color schemes. You can apply them using [`bspwall`](config/bspwm/scripts/bspwall).
+These dotfiles include Pywal-based color schemes.
 
 - `Super` + `Alt` + `w` for changing wallpaper
 - wallpaper dir -> `~/Pictures/Wallpapers`
