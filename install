@@ -82,7 +82,7 @@ clear
 # Install packages
 logo "Installing needed packages"
 
-dependencies=(kitty zsh bspwm dragon-drop dunst feh ly pywal-16-colors git gtk-engine-murrine gvfs gvfs-afc gvfs-mtp gvfs-smb htop brave-bin lxappearance mpc mpd mpv ncmpcpp neovim networkmanager pamixer pavucontrol qogir-icon-theme ranger rofi scrot sed sxhkd udisks2 ttf-roboto-mono ttf-roboto-mono-nerd unzip xclip xdg-user-dirs-gtk xorg-xinit zathura zathura-pdf-mupdf zip ttf-maple noto-fonts-emoji ttf-ubuntu-font-family nerd-fonts bibata-cursor-theme)
+dependencies=(kitty zsh bspwm dragon-drop dunst calcurse feh ly pywal-16-colors git gtk-engine-murrine gvfs gvfs-afc gvfs-mtp gvfs-smb htop brave-bin lxappearance mpc mpd mpv ncmpcpp neovim networkmanager pamixer pavucontrol qogir-icon-theme ranger rofi scrot sed sxhkd udisks2 ttf-roboto-mono ttf-roboto-mono-nerd unzip xclip xdg-user-dirs-gtk xorg-xinit zathura zathura-pdf-mupdf zip ttf-maple noto-fonts-emoji ttf-ubuntu-font-family nerd-fonts bibata-cursor-theme betterlockscreen)
 
 is_installed() {
 	pacman -Qi "$1" &>/dev/null
@@ -103,7 +103,7 @@ clear
 
 # Install ZSH 
 printf "Installing ohmyzsh..\n"
-sh -c ~/dotfiles/shell
+sh -c ~/dotfiles/shell_config
 plugins=(
     https://github.com/zsh-users/zsh-autosuggestions
     https://github.com/zsh-users/zsh-syntax-highlighting.git
@@ -160,7 +160,7 @@ if [ ! -d "$backup_folder" ]; then
 	mkdir -p "$backup_folder"
 fi
 
-for folder in kitty bspwm btop gtk-2.0 gtk-3.0 gtk-4.0 mpd mpv ncmpcpp neovim picom ranger rofi style style_folder sxhkd zathura; do
+for folder in kitty bspwm btop gtk-2.0 gtk-3.0 gtk-4.0 mpd mpv ncmpcpp nvim picom ranger rofi style style_folder sxhkd zathura; do
 	if [ -d "$HOME/.config/$folder" ]; then
 		mv "$HOME/.config/$folder" "$backup_folder/${folder}_$date"
 		echo "$folder folder backed up successfully at $backup_folder/${folder}_$date"
@@ -206,6 +206,22 @@ done
 
 for archivos in ~/dotfiles/home/*; do
 	sudo cp -R "${archivos}" ~/
+	if [ $? -eq 0 ]; then
+		printf "%s%s%s file copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
+	else
+		printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
+		sleep 1
+	fi
+done
+printf "%s%sDone!\n\n" "${BLD}" "${CGR}" "${CNC}"
+sleep 2
+clear
+
+# Install Nvim 
+logo "Installing Neovim.."
+git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+for archivos in ~/dotfiles/nvim/*; do
+	sudo cp -R "${archivos}" ~/.config/nvim/lua/
 	if [ $? -eq 0 ]; then
 		printf "%s%s%s file copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
 	else
