@@ -29,19 +29,18 @@ This repository contains dotfiles for configuring various components of a Linux 
 
 ### Included Components:
 
-| **Component**         | **Name**                                              |
-| :-------------------- | :---------------------------------------------------- |
-| **Window Manager**    | [bspwm](https://github.com/baskerville/bspwm)         |
-| **Terminal Emulator** | [kitty](https://sw.kovidgoyal.net/kitty/)             |
-| **File Manager**      | [ranger](https://ranger.github.io/)                   |
-| **Browser**           | [brave](https://brave.com/)                           |
-| **Text Editor (TUI)** | [astronvim](https://astronvim.com/)                   |
-| **PDF Viewer**        | [zathura](https://pwmt.org/projects/zathura/)         |
-| **Video Player**      | [mpv](https://mpv.io)                                 |
-| **Music Player**      | [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)         |
-| **System Info**       | [lmaofetch](https://github.com/p3nguin-kun/lmaofetch) |
-| **System Monitor**    | [htop](https://htop.dev/)                             |
-| **Display Manager**   | [ly](https://github.com/fairyglade/ly)                |
+| **Component**         | **Name**                                      |
+| :-------------------- | :-------------------------------------------- |
+| **Window Manager**    | [bspwm](https://github.com/baskerville/bspwm) |
+| **Terminal Emulator** | [kitty](https://sw.kovidgoyal.net/kitty/)     |
+| **File Manager**      | [ranger](https://ranger.github.io/)           |
+| **Browser**           | [brave](https://brave.com/)                   |
+| **Text Editor (TUI)** | [astronvim](https://astronvim.com/)           |
+| **PDF Viewer**        | [zathura](https://pwmt.org/projects/zathura/) |
+| **Video Player**      | [mpv](https://mpv.io)                         |
+| **Music Player**      | [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) |
+| **System Monitor**    | [htop](https://htop.dev/)                     |
+| **Display Manager**   | [ly](https://github.com/fairyglade/ly)        |
 
 <!-- Installation -->
 
