@@ -35,8 +35,20 @@ bspc config pointer_action1						    move
 bspc config pointer_action3						    resize_side
 bspc config pointer_action2						    resize_corner
 
-# cerebro
-cerebro &
+# Keybord (Shortcut) Setup
+sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &
+
+# Setup Compositer
+picom --config "$HOME"/.config/bspwm/picom.conf &
+
+# Notification Setup
+bspdunst
+
+# Autolock
+xss-lock -- betterlockscreen -l &
+
+# wallpaper
+feh --bg-fill "$(< "${HOME}/.cache/wal/wal")" 
 
 # Cursor
 xsetroot -cursor_name left_ptr

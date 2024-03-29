@@ -1,0 +1,83 @@
+configuration {
+    modi:                        "drun";
+    show-icons:                  true;
+    drun-display-format:         "{name}";
+}
+
+@import                          "shared/colors.rasi"
+@import                          "shared/fonts.rasi"
+
+* {
+    main-bg: var(background);
+    main-fg: var(foreground);
+    select-bg: var(selected);
+    select-fg: var(active);
+}
+
+window {
+    enabled:                     true;
+    fullscreen:                  false;
+    width:                       90%;
+    transparency:                "real";
+    cursor:                      "default";
+    spacing:                     0px;
+    padding:                     0px;
+    border:                      0px;
+    border-radius:               0px;
+    border-color:                transparent;
+    background-color:            transparent;
+}
+
+mainbox {
+    enabled:                     true;
+    children:                    [ "listview" ];
+    background-color:            @main-bg;
+}
+
+listview {
+    enabled:                     true;
+    columns:                     4;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     true;
+    fixed-height:                true;
+    fixed-columns:               true;
+    cursor:                      "default";
+    background-color:            transparent;
+}
+
+element {
+    enabled:                     true;
+    orientation:                 horizontal;
+    cursor:                      pointer;
+    background-color:            transparent;
+}
+
+@media(max-aspect-ratio: 1.8) {
+    element {
+        orientation:             vertical;
+    }
+}
+
+element selected.normal {
+    background-color:            @select-bg;
+}
+
+element-icon {
+    size:                        40%;
+    cursor:                      inherit;
+    border:                      5px;
+    background-color:            transparent;
+}
+
+element-text {
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    padding:                     0px;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+}

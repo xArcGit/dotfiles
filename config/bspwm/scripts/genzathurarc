@@ -2,15 +2,13 @@
 
 . $HOME/.cache/wal/colors.sh
 
-file_path=$HOME/.config/zathura/theme.color
+file_path=$HOME/.config/zathura/colorscheme
 
 if [ -d "$file_path" ]; then
     rm -r "$file_path"
 fi
 
 cat <<EOF > $file_path
-set recolor "true"
-
 set completion-bg "$background"
 set completion-fg "$foreground"
 set completion-group-bg "$background"
@@ -38,8 +36,4 @@ set index-active-bg "$foreground"
 set index-active-fg "$background"
 set render-loading-bg "$background"
 set render-loading-fg "$foreground"
-
-set window-title-home-tilde true
-set statusbar-basename true
-set selection-clipboard clipboard
 EOF

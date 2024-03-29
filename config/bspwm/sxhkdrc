@@ -1,8 +1,8 @@
 super + Return
 	kitty
 
-super + alt + p
-	bspcolorpicker
+super + alt + {e,w}
+	{bspcolorpicker,rofiwallpaper}
 
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -14,7 +14,10 @@ super + {_,shift + }q
 	bspc node -{c,k}
 
 super + w
-	librewolf	
+	brave
+
+super + space
+	rofilauncher
 
 super + m
 	bspc desktop -l next

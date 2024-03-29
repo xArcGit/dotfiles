@@ -10,6 +10,7 @@
 <p align="center">Fully-featured floating/tiling window manager-based dotfiles for Arch Linux</p>
 
 <!-- Table of Contents -->
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -21,55 +22,62 @@
 - [License](#license)
 
 <!-- Introduction -->
+
 ## Introduction
 
 This repository contains dotfiles for configuring various components of a Linux system, including window managers, terminals, file managers, browsers, editors, and more.
 
 ### Included Components:
 
-| **Component**          | **Name**                                               |
-| :--------------------- | :----------------------------------------------------- |
-| **Window Manager**     | [bspwm](https://github.com/baskerville/bspwm)          |
-| **Terminal Emulator**  | [kitty](https://sw.kovidgoyal.net/kitty/)              |
-| **File Manager**       | [ranger](https://ranger.github.io/)                    |
-| **Browser**            | [librewolf](https://www.librewolf.net/)                |
-| **Text Editor (TUI)**  | [astronvim](https://astronvim.com/)                    |
-| **Text Editor (GUI)**  | [vscodium](https://vscodium.com/)                      |
-| **PDF Viewer**         | [zathura](https://pwmt.org/projects/zathura/)          |
-| **Video Player**       | [mpv](https://mpv.io)                                  |
-| **Music Player**       | [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)          |
-| **System Info**        | [lmaofetch](https://github.com/p3nguin-kun/lmaofetch)  |
-| **System Monitor**     | [htop](https://htop.dev/)                              |
-| **Display Manager**    | [ly](https://github.com/fairyglade/ly)                 |
+| **Component**         | **Name**                                              |
+| :-------------------- | :---------------------------------------------------- |
+| **Window Manager**    | [bspwm](https://github.com/baskerville/bspwm)         |
+| **Terminal Emulator** | [kitty](https://sw.kovidgoyal.net/kitty/)             |
+| **File Manager**      | [ranger](https://ranger.github.io/)                   |
+| **Browser**           | [brave](https://brave.com/)                           |
+| **Text Editor (TUI)** | [astronvim](https://astronvim.com/)                   |
+| **PDF Viewer**        | [zathura](https://pwmt.org/projects/zathura/)         |
+| **Video Player**      | [mpv](https://mpv.io)                                 |
+| **Music Player**      | [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)         |
+| **System Info**       | [lmaofetch](https://github.com/p3nguin-kun/lmaofetch) |
+| **System Monitor**    | [htop](https://htop.dev/)                             |
+| **Display Manager**   | [ly](https://github.com/fairyglade/ly)                |
 
 <!-- Installation -->
+
 ## Installation
 
 **Note:** You need to be logged in as a regular user to use this script.
 
 1. Install [Git](https://git-scm.com/) if you don't have it:
+
    ```bash
    sudo pacman -S git
    ```
 
 2. Clone this repository:
-    ```bash
-    git clone git@github.com:MineNique/dotfiles.git
-    ```
-    or
-    ```bash
-    git clone https://github.com/MineNique/dotfiles.git
-    ```
+
+   ```bash
+   git clone git@github.com:MineNique/dotfiles.git
+   ```
+
+   or
+
+   ```bash
+   git clone https://github.com/MineNique/dotfiles.git
+   ```
 
 3. Navigate to the dotfiles directory:
-    ```bash
-    cd dotfiles
-    ```
+
+   ```bash
+   cd dotfiles
+   ```
 
 4. Run the installation script:
-    ```bash
-    chmod +x install && ./install
-    ```
+
+   ```bash
+   chmod +x install && ./install
+   ```
 
 5. Follow the on-screen instructions.
 
@@ -83,7 +91,8 @@ This repository contains dotfiles for configuring various components of a Linux 
 
 These dotfiles include Pywal-based color schemes. You can apply them using [`bspwall`](config/bspwm/scripts/bspwall).
 
-- Use `<` or `,` for the previous scheme, `>` or `.` for the next scheme and `/` or `q` to apply.
+- `Super` + `Alt` + `w` for changing wallpaper
+- wallpaper dir -> `~/Pictures/Wallpapers`
 <p align="center">
   <img src="images/img_00.png" width="30%">
   <img src="images/img_01.png" width="30%">
@@ -105,12 +114,13 @@ These dotfiles include Pywal-based color schemes. You can apply them using [`bsp
 These dotfiles include a keybinding list that you can access by clicking [here](https://github.com/MineNique/dotfiles/wiki/Keybindings).
 
 ## Contributing
+
 Contributions are welcome! Please feel free to open an issue or submit a pull request.
 
 ## License
+
 This project is licensed under the [MIT License](LICENSE).
 
 ## Credit
 
-* [astronvim](https://astronvim.com/) for the neovim configs
-* [whoisYoges](https://github.com/whoisYoges/lwalpapers) for wallpapers
+- [astronvim](https://astronvim.com/) for the neovim configs

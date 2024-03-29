@@ -19,7 +19,7 @@ case "$class" in
         ;;
     mpv)
         eval "$consequences"
-        [ "$state" ] || echo "state=floating focus=on rectangle=849x477+0+0 center=on"
+        [ "$state" ] || echo "state=tiled focus=on center=on"
         ;;
     Viewnior)
         eval "$consequences"
@@ -41,11 +41,11 @@ case "$class" in
         eval "$consequences"
         [ "$state" ] || echo "state=floating desktop=^5 follow=on center=on"
         ;;
-    dolphin|Thunar)
+    ranger)
         eval "$consequences"
         [ "$state" ] || echo "state=pseudo_tiled desktop=^2 rectangle=966x576+0+0 follow=on"
         ;;
-    firefox|Navigator|brave)
+    brave)
         eval "$consequences"
         [ "$state" ] || echo "desktop=^3 follow=on"
         ;;
@@ -53,7 +53,7 @@ case "$class" in
         eval "$consequences"
         [ "$state" ] || echo "desktop=^6 follow=on"
         ;;
-    spotify|elisa|mpv)
+    spotify)
         eval "$consequences"
         [ "$state" ] || echo "desktop=^6 follow=on"
         ;;
