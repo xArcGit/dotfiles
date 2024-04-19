@@ -82,7 +82,7 @@ clear
 # Install packages
 logo "Installing needed packages"
 
-dependencies=(kitty zsh bspwm dragon-drop dunst calcurse feh ly pywal-16-colors git gtk-engine-murrine gvfs gvfs-afc gvfs-mtp gvfs-smb htop brave-bin lxappearance mpc mpd mpv ncmpcpp neovim networkmanager pamixer pavucontrol qogir-icon-theme ranger rofi scrot sed sxhkd udisks2 ttf-roboto-mono ttf-roboto-mono-nerd unzip xclip xdg-user-dirs-gtk xorg-xinit zathura zathura-pdf-mupdf zip ttf-maple noto-fonts-emoji ttf-ubuntu-font-family nerd-fonts bibata-cursor-theme betterlockscreen)
+dependencies=(kitty zsh bspwm dragon-drop dunst feh ly pywal-16-colors git gtk-engine-murrine gvfs gvfs-afc gvfs-mtp gvfs-smb htop firefox lxappearance mpc mpd mpv ncmpcpp neovim networkmanager pamixer pavucontrol qogir-icon-theme ranger rofi scrot sed sxhkd udisks2 ttf-roboto-mono ttf-roboto-mono-nerd unzip xclip xdg-user-dirs-gtk xorg-xinit zathura zathura-pdf-mupdf zip ttf-maple noto-fonts-emoji ttf-ubuntu-font-family nerd-fonts bibata-cursor-theme betterlockscreen)
 
 is_installed() {
 	pacman -Qi "$1" &>/dev/null
