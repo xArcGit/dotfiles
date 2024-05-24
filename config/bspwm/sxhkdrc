@@ -1,9 +1,6 @@
 super + Return
 	kitty
 
-super + alt + {e,w}
-	{bspcolorpicker,rofiwallpaper}
-
 super + Escape
 	pkill -USR1 -x sxhkd
 
@@ -14,7 +11,7 @@ super + {_,shift + }q
 	bspc node -{c,k}
 
 super + w
-	brave
+	floorp
 
 super + space
 	rofilauncher
@@ -42,7 +39,7 @@ super + ctrl + {m,x,y,z}
 
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
-	
+
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
 
@@ -82,42 +79,24 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-
-Print
-	bspscreenshot --now
-Print + ctrl
-	bspscreenshot --area
-
-
 XF86AudioRaiseVolume
-    amixer set Master 2%+ && dunstify -u low -t 1000 -h string:x-dunst-stack-tag:cvolum -i "$HOME/.config/bspwm/assets/vol.png" "Volume: $(pamixer --get-volume-human | sed 's/%//')"
+    sysvolume raise
 XF86AudioLowerVolume
-    amixer set Master 2%- && dunstify -u low -t 1000 -h string:x-dunst-stack-tag:cvolum -i "$HOME/.config/bspwm/assets/vol.png" "Volume: $(pamixer --get-volume-human | sed 's/%//')"
+    sysvolume lower
 XF86AudioMute
-    amixer -D pulse set Master 1+ toggle 
+    sysvolume mute
 
 
 XF86AudioNext
-	playerctl next
+	sysmediacontrol --next
 XF86AudioPlay
-	playerctl play-pause
+	sysmediacontrol --toggle
 XF86AudioPrev
-	playerctl previous
+	sysmediacontrol --previous
 
 
-XF86MonBrightnessDown
-  xbacklight -dec 5
-XF86MonBrightnessUp
-  xbacklight -inc 5
+Print
+	bspscreenshot --now
 
-  
-super + ctrl + {minus,equal}
-	pamixer {-d,-i} 5 -u --allow-boost
-super + ctrl + 0
-	pamixer -t
-
-super + ctrl + bracket{left,right}
-	xbacklight {-dec,-inc} 5
-
-super + alt + ctrl + p
-	poweroff
+super + shift + {s, p, e, w, d}
+	{bspscreenshot --sel, syspowermenu, bspcolorpicker, rofiwallpaper, rofiapp}

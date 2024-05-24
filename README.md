@@ -3,7 +3,7 @@
 
 <!-- Images -->
 <p align="center">
-  <img src="./images/img_06.png" width="65%">
+  <img src="./images/image.png" width="65%">
 </p>
 
 <!-- Description -->

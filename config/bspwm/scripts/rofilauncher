@@ -3,7 +3,5 @@
 DIR="$HOME/.config/bspwm/rofi/launchers/"
 THEME='style'
 
-## Run
 rofi \
- -show drun\
- -theme "$DIR/$THEME.rasi"
+    -show drun -theme "$DIR/$THEME.rasi"

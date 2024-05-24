@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+[ -n "$(pgrep spotify_player)" ] && Control="spotify_player" || Control="firefox.instance7115" || Control="firefox"
+
+Cover=/tmp/cover.png
+bkpCover=$HOME/.config/bspwm/assets/fallback.webp
+mpddir=~/Music
+
+case $Control in
+*)
+    case $1 in
+    --next)
+        playerctl --player="$Control" next
+        ;;
+    --previous)
+        playerctl --player="$Control" previous
+        ;;
+    --toggle)
+        playerctl --player="$Control" play-pause
+        ;;
+    --stop)
+        playerctl --player="$Control" stop
+        ;;
+    --title)
+        title=$(playerctl --player="$Control" metadata --format "{{title}}")
+        echo "${title:-Play Something}"
+        ;;
+    --artist)
+        artist=$(playerctl --player="$Control" metadata --format "{{artist}}")
+        echo "${artist:-No Artist}"
+        ;;
+    --status)
+        status=$(playerctl --player="$Control" status)
+        echo "${status:-Stopped}"
+        ;;
+    --player)
+        echo "$Control"
+        ;;
+    --cover)
+        albumart="$(playerctl --player="$Control" metadata mpris:artUrl | sed -e 's/open.spotify.com/i.scdn.co/g')"
+        if [[ $(playerctl --player="$Control" metadata mpris:artUrl) ]]; then
+            curl -s "$albumart" --output $Cover
+        else
+            cp $bkpCover $Cover
+        fi
+        echo "$Cover"
+        ;;
+    --position)
+        position=$(playerctl --player="$Control" position --format "{{ duration(position) }}")
+        echo "${position:-0:00}"
+        ;;
+    --positions)
+        positions=$(playerctl --player="$Control" position | sed 's/..\{6\}$//')
+        echo "${positions:-0}"
+        ;;
+    --length)
+        length=$(playerctl --player="$Control" metadata --format "{{ duration(mpris:length) }}")
+        echo "${length:-0:00}"
+        ;;
+    --lengths)
+        lengths=$(playerctl --player="$Control" metadata mpris:length | sed 's/.\{6\}$//')
+        echo "${lengths:-0}"
+        ;;
+    --shuffle)
+        shuffle=$(playerctl --player="$Control" shuffle)
+        echo "${shuffle:-Off}"
+        ;;
+    --loop)
+        loop=$(playerctl --player="$Control" loop)
+        echo "${loop:-None}"
+        ;;
+    esac
+    ;;
+esac 2>/dev/null

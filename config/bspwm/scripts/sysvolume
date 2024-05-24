@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+show_volume_notification() {
+    volume=$(pamixer --get-volume-human | sed 's/%//')
+    if [ "$(pamixer --get-mute)" = "true" ]; then
+        image_notification="mute.png"
+        notification="Volume: Muted"
+    else
+        image_notification="unmute.png"
+        notification="Volume: $volume%"
+    fi
+    dunstify -u low -t 1000 -h string:x-dunst-stack-tag:cvolum -i "$HOME/.config/bspwm/assets/$image_notification" "$notification"
+}
+
+adjust_volume() {
+    amixer set Master "$1" && show_volume_notification
+}
+
+toggle_mute() {
+    pactl set-sink-mute 0 toggle && show_volume_notification
+}
+
+case $1 in
+raise)
+    adjust_volume "2%+"
+    ;;
+lower)
+    adjust_volume "2%-"
+    ;;
+mute)
+    toggle_mute
+    ;;
+*)
+    echo "Usage: $0 {raise|lower|mute}"
+    exit 1
+    ;;
+esac

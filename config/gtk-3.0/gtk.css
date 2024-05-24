@@ -1,1 +1,5 @@
 @import 'colors.css';
+
+.opera-header-bar .button.titlebutton {
+    display: none;
+}

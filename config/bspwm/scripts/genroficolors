@@ -1,28 +1,18 @@
 #!/usr/bin/env bash
+source "$HOME/.cache/wal/colors.sh"
 
-. $HOME/.cache/wal/colors.sh
-
-file_path="$HOME/.config/bspwm/rofi/launchers/shared/colors.rasi"
-file_path_wall="$HOME/.config/bspwm/rofi/wallpaper/shared/colors.rasi"
+file_path="$HOME/.config/bspwm/rofi/shared/colors.rasi"
 
 if [ -f "$file_path" ]; then
     rm "$file_path"
 fi
 
-cat <<EOF > "$file_path"
+cat <<EOF >"$file_path"
 * {
     background:     $background;
+    background-alt: $background;
     foreground:     $foreground;
-    selected:       $color2;
-    active:         $color1;
-    urgent:         $color3;
-}
-EOF
-
-cat <<EOF > "$file_path_wall"
-* {
-    background:     $background;
-    foreground:     $foreground;
+    foreground-alt: $foreground;
     selected:       $color2;
     active:         $color1;
     urgent:         $color3;
