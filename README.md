@@ -37,7 +37,7 @@ This repository contains dotfiles for configuring various components of a Linux 
 | **Text Editor**       | [nvim](https://neovim.io/)                    |
 | **PDF Viewer**        | [zathura](https://pwmt.org/projects/zathura/) |
 | **Video Player**      | [mpv](https://mpv.io)                         |
-| **Music Player**      | [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) |
+| **Music Player**      | [spotify_player](https://github.com/aome510/spotify-player) |
 | **System Monitor**    | [htop](https://htop.dev/)                     |
 | **Display Manager**   | [ly](https://github.com/fairyglade/ly)        |
 
