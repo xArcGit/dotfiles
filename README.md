@@ -17,7 +17,6 @@
 - [Installation](#installation)
 - [Color Schemes](#color-schemes)
 - [Usage](#usage)
-- [Tutorial](#tutorial)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -71,19 +70,13 @@ This repository contains dotfiles for configuring various components of a Linux 
    cd dotfiles
    ```
 
-4. Run the installation script:
-
-   ```bash
-   chmod +x install && ./install
-   ```
-
-5. Follow the on-screen instructions.
+5. Copy the dotfile.
 
 6. Restart your computer.
 
 7. You're done! Now you can enjoy a fully-featured floating/tiling window manager on your computer.
 
-**Note:** Edit `.xinitrc` file and change display settings.
+**Note:** Edit the `.xinitrc` file and change display settings.
 
 ## Color Schemes
 
