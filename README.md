@@ -34,8 +34,7 @@ This repository contains dotfiles for configuring various components of a Linux 
 | **Window Manager**    | [bspwm](https://github.com/baskerville/bspwm) |
 | **Terminal Emulator** | [kitty](https://sw.kovidgoyal.net/kitty/)     |
 | **File Manager**      | [ranger](https://ranger.github.io/)           |
-| **Browser**           | [brave](https://brave.com/)                   |
-| **Text Editor (TUI)** | [astronvim](https://astronvim.com/)           |
+| **Text Editor**       | [nvim](https://neovim.io/)                    |
 | **PDF Viewer**        | [zathura](https://pwmt.org/projects/zathura/) |
 | **Video Player**      | [mpv](https://mpv.io)                         |
 | **Music Player**      | [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp) |
