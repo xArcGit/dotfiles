@@ -16,7 +16,6 @@
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Color Schemes](#color-schemes)
-- [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 
