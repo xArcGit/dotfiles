@@ -90,7 +90,7 @@ This repository contains dotfiles for configuring various components of a Linux 
 
 These dotfiles include Pywal-based color schemes.
 
-- `Super` + `Alt` + `w` for changing wallpaper
+- `Shift` + `Alt` + `w` for changing wallpaper
 - wallpaper dir -> `~/Pictures/Wallpapers`
 <p align="center">
   <img src="images/img_00.png" width="30%">
@@ -107,10 +107,6 @@ These dotfiles include Pywal-based color schemes.
   <img src="images/img_08.png" width="30%">
   <img src="images/img_09.png" width="30%">
 </p>
-
-## Tutorial
-
-These dotfiles include a keybinding list that you can access by clicking [here](https://github.com/xArcGit/dotfiles/wiki/Keybindings).
 
 ## Contributing
 
