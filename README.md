@@ -81,7 +81,7 @@ This repository contains dotfiles for configuring various components of a Linux 
 
 These dotfiles include Pywal-based color schemes.
 
-- `Shift` + `Alt` + `w` for changing wallpaper
+- `Shift` + `Super` + `w` for changing wallpaper
 - wallpaper dir -> `~/Pictures/Wallpapers`
 <p align="center">
   <img src="images/img_00.png" width="30%">
