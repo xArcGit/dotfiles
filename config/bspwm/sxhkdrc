@@ -4,6 +4,9 @@ super + Return
 super + Escape
 	pkill -USR1 -x sxhkd
 
+super + alt + t
+  systhemeselecter
+
 super + alt + {q,r}
 	bspc {quit,wm -r}
 
@@ -11,13 +14,19 @@ super + {_,shift + }q
 	bspc node -{c,k}
 
 super + w
-	floorp
+  brave
 
 super + space
 	rofilauncher
 
 super + m
 	bspc desktop -l next
+
+super + h
+	polybar-msg cmd hide && bspc config bottom_padding 5
+
+super + j
+	polybar-msg cmd show && bspc config bottom_padding 37
 
 super + y
 	bspc node newest.marked.local -n newest.!automatic.local
@@ -96,7 +105,4 @@ XF86AudioPrev
 
 
 Print
-	bspscreenshot --now
-
-super + shift + {s, p, e, w, d}
-	{bspscreenshot --sel, syspowermenu, bspcolorpicker, rofiwallpaper, rofiapp}
+	sysscreenshot

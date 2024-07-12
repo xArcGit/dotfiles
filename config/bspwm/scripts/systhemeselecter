@@ -1,0 +1,114 @@
+#!/usr/bin/env bash
+
+# Directory paths
+CONFIG_DIR="$HOME/.config"
+BSPWM_DIR="$CONFIG_DIR/bspwm"
+CACHE_DIR="${HOME}/.cache/theme_bspwm"
+IMAGE_DIR="${BSPWM_DIR}/colorscheme/preview"
+
+ROFI_COMMAND="$BSPWM_DIR/rofi/theme/style.rasi"
+
+
+# ANSI color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+if [ ! -d "${CACHE_DIR}" ]; then
+    if ! mkdir -p "${CACHE_DIR}"; then
+        echo -e "${RED}Failed to create directory: ${CACHE_DIR}${NC}"
+        exit 1
+    fi
+fi
+
+
+# Function to create symbolic links for a given theme
+links() {
+    ln -sf "$BSPWM_DIR/colorscheme/$theme_name/bspwm/color-scheme" "$BSPWM_DIR/color-scheme"
+    ln -sf "$BSPWM_DIR/colorscheme/$theme_name/rofi/colors.rasi" "$BSPWM_DIR/rofi/shared/colors.rasi"
+    ln -sf "$BSPWM_DIR/colorscheme/$theme_name/dunst/dunstrc" "$BSPWM_DIR/dunstrc"
+    ln -sf "$BSPWM_DIR/colorscheme/$theme_name/theme/gtk-3.0" "$CONFIG_DIR/gtk-3.0"
+    ln -sf "$BSPWM_DIR/colorscheme/$theme_name/theme/.gtkrc-2.0" "$HOME/.gtkrc-2.0"
+    ln -sf "$BSPWM_DIR/colorscheme/$theme_name/spotify-player/theme.toml" "$CONFIG_DIR/spotify-player/theme.toml"
+    ln -sf "$BSPWM_DIR/colorscheme/$theme_name/fzf/zshrc" "$HOME/.zshrc.theme"
+    ln -sf "$BSPWM_DIR/colorscheme/$theme_name/kitty/color-scheme.conf" "$CONFIG_DIR/kitty/color-scheme.conf"
+    ln -sf "$BSPWM_DIR/colorscheme/$theme_name/lvim/config.lua" "$CONFIG_DIR/lvim/config.lua"
+    ln -sf "$BSPWM_DIR/colorscheme/$theme_name/zathura/color-scheme" "$CONFIG_DIR/zathura/color-scheme"
+    ln -sf "$BSPWM_DIR/colorscheme/$theme_name/wallpapers/bg.png" "$HOME/.bg.png"
+}
+
+# Function to remove existing files or links and create symbolic links for a given theme
+create_links() {
+    # Remove existing files or links
+    rm -f "$BSPWM_DIR/color-scheme" \
+    "$BSPWM_DIR/rofi/shared/colors.rasi" \
+    "$BSPWM_DIR/dunstrc" \
+    "$CONFIG_DIR/gtk-3.0" \
+    "$HOME/.gtkrc-2.0" \
+    "$CONFIG_DIR/spotify-player/theme.toml" \
+    "$HOME/.zshrc.theme" \
+    "$CONFIG_DIR/kitty/color-scheme.conf" \
+    "$CONFIG_DIR/lvim/config.lua" \
+    "$CONFIG_DIR/zathura/color-scheme" \
+    "$HOME/.bg.png"
+    
+    # Create new symbolic links based on the selected theme
+    links
+    
+    # Update JSON configuration for selected theme
+    case "$theme_name" in
+        "tokyo_night")
+            python "$BSPWM_DIR/scripts/helper/modify_json.py" "$CONFIG_DIR/Code/User/settings.json" '"workbench.preferredDarkColorTheme": "Tokyo Night"'
+            python "$BSPWM_DIR/scripts/helper/modify_json.py" "$CONFIG_DIR/zed/settings.json" '"theme": "Tokyo Night",'
+            python "$BSPWM_DIR/scripts/helper/modify_dicts.py" "$CONFIG_DIR/kitty/tab_bar.py" "BG_COLOR" '  "key1": "#101014",'
+            python "$BSPWM_DIR/scripts/helper/modify_dicts.py" "$CONFIG_DIR/kitty/tab_bar.py" "FG_COLOR" '  "color1": "#f7768e",\n"color2": "#73daca",\n"color3": "#e0af68",\n"color5": "#bb9af7",\n"color4": "#9ece6a"'
+        ;;
+        "catppuccin")
+            python "$BSPWM_DIR/scripts/helper/modify_json.py" "$CONFIG_DIR/Code/User/settings.json" '"workbench.preferredDarkColorTheme": "Catppuccin Mocha"'
+            python "$BSPWM_DIR/scripts/helper/modify_json.py" "$CONFIG_DIR/zed/settings.json" '"theme": "Catppuccin Mocha"'
+            python "$BSPWM_DIR/scripts/helper/modify_dicts.py" "$CONFIG_DIR/kitty/tab_bar.py" "BG_COLOR" '  "flamingo": "#f2cdcd",\n"pink": "#f5c2e7",\n"maroon": "#eba0ac",\n"peach": "#fab387",\n"yellow": "#f9e2af",\n"green": "#a6e3a1",\n"teal": "#94e2d5",\n"sapphire": "#74c7ec",\n"blue": "#89b4fa",\n"lavender": "#b4befe"'
+            python "$BSPWM_DIR/scripts/helper/modify_dicts.py" "$CONFIG_DIR/kitty/tab_bar.py" "FG_COLOR" '  "crust": "#11111b",'
+        ;;
+        "everblush")
+            python "$BSPWM_DIR/scripts/helper/modify_json.py" "$CONFIG_DIR/Code/User/settings.json" '"workbench.preferredDarkColorTheme": "Everblush"'
+            python "$BSPWM_DIR/scripts/helper/modify_json.py" "$CONFIG_DIR/zed/settings.json" '"theme": "Everforest Dark",'
+            python "$BSPWM_DIR/scripts/helper/modify_dicts.py" "$CONFIG_DIR/kitty/tab_bar.py" "BG_COLOR" '  "key1": "#1b2224",'
+            python "$BSPWM_DIR/scripts/helper/modify_dicts.py" "$CONFIG_DIR/kitty/tab_bar.py" "FG_COLOR" '  "color9": "#ef7e7e",\n"color10": "#96d988",\n"color11": "#f4d67a",\n"color12": "#71baf2"'
+        ;;
+    esac
+}
+
+
+
+# Function to display Rofi menu and select a theme
+select_theme() {
+    for imagen in "$IMAGE_DIR"/*.png; do
+        if [ -f "$imagen" ]; then
+            nombre_archivo=$(basename "$imagen")
+            if [ ! -f "${CACHE_DIR}/${nombre_archivo}" ]; then
+                magick convert -strip "$imagen" -thumbnail 700x500^ -gravity center -extent 700x500 "${CACHE_DIR}/${nombre_archivo}"
+            fi
+        fi
+    done
+    
+    chosen_theme=$(find "${IMAGE_DIR}" -type f -iname "*.png" -exec basename {} \; | sort | while read -r A; do
+            echo -en "${A%.png}\x00icon\x1f${CACHE_DIR}/$A\n"
+    done | rofi -dmenu -i -p "Select a theme" -theme "$ROFI_COMMAND")
+    
+    [[ -n "$chosen_theme" ]] || exit 1
+    
+    theme_name=$(basename "$chosen_theme" .png)
+    
+    create_links
+    
+}
+
+# Prompt user to select a theme using Rofi
+select_theme
+
+# Restart BSPWM to apply changes
+if command -v bspc > /dev/null; then
+    bspc wm -r
+fi

@@ -1,0 +1,1 @@
+/home/death/.config/bspwm/colorscheme/catppuccin/lvim/config.lua

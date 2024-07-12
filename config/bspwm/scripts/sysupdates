@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 get_total_updates() {
-local total_updates=$(($(checkupdates 2> /dev/null | wc -l || echo 0) + $(paru -Qua 2> /dev/null | wc -l || echo 0)))
+local total_updates=$(($(updates 2> /dev/null | wc -l || echo 0) + $(paru -Qua 2> /dev/null | wc -l || echo 0)))
 echo "${total_updates:-0}"
 }
 
 get_list_updates() {
 	echo -e "\033[1m\033[34mRegular updates:\033[0m"
-	checkupdates | sed 's/->/\x1b[32;1m\x1b[0m/g'
+	sed 's/->/\x1b[32;1m\x1b[0m/g'
 }
 
 get_list_aur_updates() {

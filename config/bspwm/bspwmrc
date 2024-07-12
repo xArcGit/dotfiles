@@ -1,54 +1,71 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-# pywall
-. "${HOME}/.cache/wal/colors.sh"
+# BSPWM DIR
+DIR="$HOME/.config/bspwm"
 
 # Fix java applications
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# Workspaces
+# Loading Scripts
+export PATH="$DIR/scripts:$PATH"
+
+# Setup desktops for each monitor
 for monitor in "$(xrandr -q | grep -w 'connected' | cut -d' ' -f1)"; do
 	bspc monitor "$monitor" -d '1' '2' '3' '4' '5' '6'
 done
 
+
 # bspwm config
-bspc config remove_unplugged_monitors 				true
-bspc config remove_disabled_monitors 			  	true
-bspc config top_padding							    5
-bspc config right_padding						    5
-bspc config left_padding						    5
-bspc config bottom_padding						    5
-bspc config border_width 						    1
-bspc config border_radius 						    10
-bspc config window_gap 							    1
-bspc config focus_follows_pointer 				  	true
-bspc config split_ratio 						    0.5
-bspc config single_monocle 						    true
-bspc config borderless_monocle 					    false
-bspc config gapless_monocle 					    false
-bspc config normal_border_color 				    "$color1"
-bspc config active_border_color 				    "$color2"
-bspc config focused_border_color 				    "$color15"
-bspc config presel_feedback_color 				  	"$color1"
-bspc config pointer_modifier					    mod4
-bspc config pointer_action1						    move
-bspc config pointer_action3						    resize_side
-bspc config pointer_action2						    resize_corner
+bspc config remove_unplugged_monitors   true
+bspc config remove_disabled_monitors    true
+bspc config top_padding                 5
+bspc config right_padding               5
+bspc config left_padding                5
+bspc config bottom_padding              5
+bspc config border_width                1
+bspc config border_radius               10
+bspc config window_gap                  0
+bspc config split_ratio                 0.5
+bspc config single_monocle              true
+bspc config borderless_monocle          false
+bspc config gapless_monocle             false
+bspc config focus_follows_pointer       true
+bspc config pointer_follows_focus       false
+bspc config pointer_motion_interval     5
+bspc config pointer_modifier            mod4
+bspc config pointer_action1             move
+bspc config pointer_action2             resize_corner
+bspc config pointer_action3             resize_side
 
-# Keybord (Shortcut) Setup
-sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &
+sh "$DIR/color-scheme"
 
-# Setup Compositer
-picom --config "$HOME"/.config/bspwm/picom.conf &
+# Display Setup
+# export DISPLAY=":0"
+
+# if ! xrandr --query | grep -q "1920x1080"; then
+#     xrandr --newmode "1920x1080" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync
+#     xrandr --addmode DP-1 "1920x1080"
+#     xrandr --output DP-1 --mode "1920x1080"
+# fi
+
+# Wallpaper
+sh "$HOME/.fehbg"
+
+# Function to kill a process if it's running
+killprocess() {
+    local process_name="$1"
+    if [[ `pidof $process_name` ]]; then
+        pkill $process_name
+    fi
+}
+
+# Keyboard Setup
+killprocess "sxhkd"
+sxhkd -c "$DIR/sxhkdrc" &
 
 # Notification Setup
-bspdunst
-
-# Effects
-easyeffects --gapplication-service &
-
-# Autolock
-xss-lock -- betterlockscreen -l &
+killprocess "dunst"
+dunst -config "$DIR"/dunstrc &
 
 # Cursor
 xsetroot -cursor_name left_ptr

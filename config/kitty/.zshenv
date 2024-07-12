@@ -401,9 +401,9 @@ _ksi_deferred_init() {
                     [[ "$arg" != -* && "$arg" != *=* ]] && builtin break  # command found
                 done
                 if [[ "$is_sudoedit" == "y" ]]; then
-                    builtin command sudo "$@"; 
-                else 
-                    builtin command sudo TERMINFO="$TERMINFO" "$@"; 
+                    builtin command sudo "$@";
+                else
+                    builtin command sudo TERMINFO="$TERMINFO" "$@";
                 fi
             }
         fi
@@ -411,8 +411,8 @@ _ksi_deferred_init() {
 
     # Map alt+left/right to move by word if not already mapped. This is expected behavior on macOS and I am tired
     # of answering questions about it.
-    [[ $(builtin bindkey "^[[1;3C") == *" undefined-key" ]] && builtin bindkey "^[[1;3C" "forward-word" 
-    [[ $(builtin bindkey "^[[1;3D") == *" undefined-key" ]] && builtin bindkey "^[[1;3D" "backward-word" 
+    [[ $(builtin bindkey "^[[1;3C") == *" undefined-key" ]] && builtin bindkey "^[[1;3C" "forward-word"
+    [[ $(builtin bindkey "^[[1;3D") == *" undefined-key" ]] && builtin bindkey "^[[1;3D" "backward-word"
 
     # Unfunction _ksi_deferred_init to save memory. Don't unfunction
     # kitty-integration though because decent public functions aren't supposed to

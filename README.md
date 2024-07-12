@@ -1,29 +1,12 @@
 <!-- Title -->
 <h1 align="center"><strong>Dotfiles</strong></h1>
-
-<!-- Images -->
-<p align="center">
-  <img src="./images/image.png" width="65%">
-</p>
-
-<!-- Description -->
-<p align="center">Fully-featured floating/tiling window manager-based dotfiles for Arch Linux</p>
-
-<!-- Table of Contents -->
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Color Schemes](#color-schemes)
-- [Contributing](#contributing)
-- [License](#license)
+<p align="center">Fully-featured floating/tiling window manager-based dotfiles for GNU/Linux</p>
 
 <!-- Introduction -->
 
 ## Introduction
 
-This repository contains dotfiles for configuring various components of a Linux system, including window managers, terminals, file managers, browsers, editors, and more.
+This repository contains dotfiles for configuring various components of a GNU/Linux system, including window managers, terminals, file managers, browsers, editors, and more.
 
 ### Included Components:
 
@@ -32,18 +15,14 @@ This repository contains dotfiles for configuring various components of a Linux 
 | **Window Manager**    | [bspwm](https://github.com/baskerville/bspwm) |
 | **Terminal Emulator** | [kitty](https://sw.kovidgoyal.net/kitty/)     |
 | **File Manager**      | [ranger](https://ranger.github.io/)           |
-| **Text Editor**       | [nvim](https://neovim.io/)                    |
+| **Text Editor**       | [nvim](https://neovim.io/), [lvim](https://www.lunarvim.org/) |
 | **PDF Viewer**        | [zathura](https://pwmt.org/projects/zathura/) |
 | **Video Player**      | [mpv](https://mpv.io)                         |
 | **Music Player**      | [spotify_player](https://github.com/aome510/spotify-player) |
 | **System Monitor**    | [htop](https://htop.dev/)                     |
 | **Display Manager**   | [ly](https://github.com/fairyglade/ly)        |
 
-<!-- Installation -->
-
 ## Installation
-
-**Note:** You need to be logged in as a regular user to use this script.
 
 1. Install [Git](https://git-scm.com/) if you don't have it:
 
@@ -69,34 +48,69 @@ This repository contains dotfiles for configuring various components of a Linux 
    cd dotfiles
    ```
 
-5. Copy the dotfile.
+4. Copy the dotfiles to your home directory:
 
-6. Restart your computer.
+   ```bash
+   cp -r config/* ~/.config
+   ```
+   ```bash
+   cp -r home/* ~/
+   ```
+    - check [Theme](theme/Readme.md)
 
-7. You're done! Now you can enjoy a fully-featured floating/tiling window manager on your computer.
+5. Install the required packages
 
-**Note:** Edit the `.xinitrc` file and change display settings.
+6. Enable the display manager:
+
+   ```bash
+   sudo systemctl enable ly.service
+   ```
+
+7. Restart your computer.
+
+8. You're done! Now you can enjoy a fully-featured floating/tiling window manager on your GNU/Linux computer.
 
 ## Color Schemes
 
-These dotfiles include Pywal-based color schemes.
+Use `Shift` + `Alt` + `t` to change the color scheme.
 
-- `Shift` + `Super` + `w` for changing wallpaper
-- wallpaper dir -> `~/Pictures/Wallpapers`
+### [Catppuccin](https://catppuccin.com/)
+
 <p align="center">
-  <img src="images/img_00.png" width="30%">
-  <img src="images/img_01.png" width="30%">
-  <img src="images/img_03.png" width="30%">
+  <img src="images/catppuccin/01.png" width="30%">
+  <img src="images/catppuccin/02.png" width="30%">
+  <img src="images/catppuccin/03.png" width="30%">
 </p>
 <p align="center">
-  <img src="images/img_04.png" width="30%">
-  <img src="images/img_05.png" width="30%">
-  <img src="images/img_06.png" width="30%">
+  <img src="images/catppuccin/04.png" width="30%">
+  <img src="images/catppuccin/05.png" width="30%">
+  <img src="images/catppuccin/06.png" width="30%">
+</p>
+
+### [Everblush](https://everblush.github.io/)
+
+<p align="center">
+  <img src="images/everblush/01.png" width="30%">
+  <img src="images/everblush/02.png" width="30%">
+  <img src="images/everblush/03.png" width="30%">
 </p>
 <p align="center">
-  <img src="images/img_07.png" width="30%">
-  <img src="images/img_08.png" width="30%">
-  <img src="images/img_09.png" width="30%">
+  <img src="images/everblush/04.png" width="30%">
+  <img src="images/everblush/05.png" width="30%">
+  <img src="images/everblush/06.png" width="30%">
+</p>
+
+### [Tokyo Night]()
+
+<p align="center">
+  <img src="images/tokyo-night/01.png" width="30%">
+  <img src="images/tokyo-night/02.png" width="30%">
+  <img src="images/tokyo-night/03.png" width="30%">
+</p>
+<p align="center">
+  <img src="images/tokyo-night/04.png" width="30%">
+  <img src="images/tokyo-night/05.png" width="30%">
+  <img src="images/tokyo-night/06.png" width="30%">
 </p>
 
 ## Contributing
@@ -106,4 +120,3 @@ Contributions are welcome! Please feel free to open an issue or submit a pull re
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-

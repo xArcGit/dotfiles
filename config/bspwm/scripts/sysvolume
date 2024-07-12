@@ -20,6 +20,7 @@ toggle_mute() {
     pactl set-sink-mute 0 toggle && show_volume_notification
 }
 
+
 case $1 in
 raise)
     adjust_volume "2%+"
