@@ -72,7 +72,7 @@ This repository contains dotfiles for configuring various components of a GNU/Li
 
 ## Color Schemes
 
-Use `Shift` + `Alt` + `t` to change the color scheme.
+Use `Super` + `Alt` + `t` to change the color scheme.
 
 ### [Catppuccin](https://catppuccin.com/)
 
