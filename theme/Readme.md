@@ -20,4 +20,4 @@
 - [tokyo night](https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night)
 
 ## Web-Site
--[catppuccin](https://github.com/catppuccin/userstyles/tree/main)
+- [catppuccin](https://github.com/catppuccin/userstyles/tree/main)
