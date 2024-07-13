@@ -49,7 +49,6 @@ create_links() {
     "$CONFIG_DIR/spotify-player/theme.toml" \
     "$HOME/.zshrc.theme" \
     "$CONFIG_DIR/kitty/color-scheme.conf" \
-    "$CONFIG_DIR/lvim/config.lua" \
     "$CONFIG_DIR/zathura/color-scheme" \
     "$HOME/.bg.png"
     
