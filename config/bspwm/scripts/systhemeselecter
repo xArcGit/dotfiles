@@ -34,7 +34,6 @@ links() {
     ln -sf "$BSPWM_DIR/colorscheme/$theme_name/spotify-player/theme.toml" "$CONFIG_DIR/spotify-player/theme.toml"
     ln -sf "$BSPWM_DIR/colorscheme/$theme_name/fzf/zshrc" "$HOME/.zshrc.theme"
     ln -sf "$BSPWM_DIR/colorscheme/$theme_name/kitty/color-scheme.conf" "$CONFIG_DIR/kitty/color-scheme.conf"
-    ln -sf "$BSPWM_DIR/colorscheme/$theme_name/lvim/config.lua" "$CONFIG_DIR/lvim/config.lua"
     ln -sf "$BSPWM_DIR/colorscheme/$theme_name/zathura/color-scheme" "$CONFIG_DIR/zathura/color-scheme"
     ln -sf "$BSPWM_DIR/colorscheme/$theme_name/wallpapers/bg.png" "$HOME/.bg.png"
 }
