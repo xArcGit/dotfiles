@@ -15,7 +15,7 @@ This repository contains dotfiles for configuring various components of a GNU/Li
 | **Window Manager**    | [bspwm](https://github.com/baskerville/bspwm) |
 | **Terminal Emulator** | [kitty](https://sw.kovidgoyal.net/kitty/)     |
 | **File Manager**      | [ranger](https://ranger.github.io/)           |
-| **Text Editor**       | [nvim](https://neovim.io/), [lvim](https://www.lunarvim.org/) |
+| **Text Editor**       | [nvim](https://neovim.io/)                    |
 | **PDF Viewer**        | [zathura](https://pwmt.org/projects/zathura/) |
 | **Video Player**      | [mpv](https://mpv.io)                         |
 | **Music Player**      | [spotify_player](https://github.com/aome510/spotify-player) |
