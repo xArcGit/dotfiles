@@ -4,14 +4,7 @@
 import datetime
 import dbus
 import random
-from typing import Dict, Optional, Tuple
-
-
-# Define hex_to_int function
-def hex_to_int(hex_color: str) -> int:
-    return int(hex_color.lstrip("#"), 16)
-
-
+from typing import Dict, Tuple
 from kitty.fast_data_types import Screen, get_options
 from kitty.tab_bar import (
     DrawData,
@@ -22,6 +15,12 @@ from kitty.tab_bar import (
     draw_title,
 )
 from kitty.utils import color_as_int
+
+
+# Define hex_to_int function
+def hex_to_int(hex_color: str) -> int:
+    return int(hex_color.lstrip("#"), 16)
+
 
 opts = get_options()
 
@@ -47,20 +46,17 @@ chosen_colors_bg = []
 
 
 def get_color(COLORS: Dict[str, str], chosen_colors: list[str]) -> str:
-    # Exclude colors that are in chosen_colors
     suitable_colors: Dict[str, str] = {
         k: v for k, v in COLORS.items() if k not in chosen_colors
     }
 
-    # If all colors are excluded, reset chosen_colors to retry
     if not suitable_colors:
         chosen_colors.clear()
-        suitable_colors = COLORS  # Reset to include all colors again
+        suitable_colors = COLORS
 
     chosen_color = random.choice(list(suitable_colors.values()))
     chosen_color_name = next((k for k, v in COLORS.items() if v == chosen_color), None)
 
-    # Add chosen color to chosen_colors list
     if chosen_color_name:
         chosen_colors.append(chosen_color_name)
 
@@ -68,7 +64,7 @@ def get_color(COLORS: Dict[str, str], chosen_colors: list[str]) -> str:
 
 
 # Icon settings
-ICON: str = " → "
+ICON: str = " X "
 ICON_LENGTH: int = len(ICON)
 ICON_FG: int = as_rgb(hex_to_int(get_color(FG_COLOR, chosen_colors_fg)))
 ICON_BG: int = as_rgb(hex_to_int(get_color(BG_COLOR, chosen_colors_bg)))

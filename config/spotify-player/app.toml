@@ -1,5 +1,5 @@
 theme = "default"
-client_id = "65b708073fc0480ea92a077233ca87bd"
+client_id = ""
 client_port = 8080
 playback_format = """
 {track} • {artists}
@@ -13,7 +13,7 @@ page_size_in_rows = 20
 play_icon = "▶"
 pause_icon = "⏸︎"
 liked_icon = "♥"
-border_type = "Hidden"
+border_type = "Plain"
 progress_bar_type = "Line"
 playback_window_position = "Top"
 cover_img_length = 9

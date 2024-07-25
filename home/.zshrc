@@ -1,6 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -43,7 +40,6 @@ zinit snippet OMZP::command-not-found
 
 # Load completions
 autoload -Uz compinit && compinit
-
 zinit cdreplay -q
 
 # Keybindings
@@ -72,50 +68,50 @@ setopt list_packed
 setopt auto_list
 setopt complete_in_word
 
-
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa --only-dirs -1 $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa --tree --only-dirs --level=2 $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
-alias mirrors="sudo reflector --verbose --latest 5 --country 'India' --age 6 --sort rate --save /etc/pacman.d/mirrorlist"
-alias tmp="cat /sys/devices/platform/coretemp.*/hwmon/hwmon*/temp2_input | awk '{sub(/000$/, "°C", $0); print}'"
-alias clean="sudo pacman -Scc --noconfirm && paru -Sc --noconfirm && yay -Sc --noconfirm"
-alias purga="sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av"
-alias update="sysupdates --update-system"
-alias list="sysupdates --print-updates"
-alias autoremove="sudo pacman -R $(pacman -Qdtq)"
-alias scan_wifi="nmcli dev wifi rescan && nmcli dev wifi"
-alias neofetch="neofetch --image_size 430px"
-alias sarc="ssh xarc@192.168.1.21"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
 
-alias h='htop'
-alias v='/home/death/.local/bin/lvim'
+alias update="Updates --print-updates && Updates --update-system"
+alias clean="sudo pacman -Scc --noconfirm && paru -Sc --noconfirm && yay -Sc --noconfirm"
+
+alias h='bpytop'
 alias f='ranger'
 alias z='zathura'
-alias n='nvim'
-alias l='exa -l'
+alias c='bat --style=plain --theme="Catppuccin Mocha"'
+alias v='nvim'
 alias s='spotify_player'
-alias c="clear"
+alias cl="clear"
 alias q='exit'
 
+alias l="exa -l"
 alias ls='exa'
 
-alias wt='curl wttr.in'
 alias tar='tar -xf'
 alias wget="wget -c"
-alias fr="free -h --si"
 alias fs="df --si"
 alias zshrc="v $HOME/.zshrc"
-alias lg='lazygit'
 alias zed='zeditor'
+alias ani='ani-cli'
+alias manga='mangal'
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
-# source
-source ~/.zshrc.theme
+# Export
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+

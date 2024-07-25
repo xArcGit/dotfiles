@@ -2,70 +2,68 @@
 
 # BSPWM DIR
 DIR="$HOME/.config/bspwm"
+export PATH="$DIR/scripts:$PATH"
+export XDG_CURRENT_DESKTOP='bspwm'
 
 # Fix java applications
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# Loading Scripts
-export PATH="$DIR/scripts:$PATH"
-
 # Setup desktops for each monitor
-for monitor in "$(xrandr -q | grep -w 'connected' | cut -d' ' -f1)"; do
-	bspc monitor "$monitor" -d '1' '2' '3' '4' '5' '6'
+for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
+    bspc monitor "$monitor" -d '1' '2' '3' '4' '5' '6'
 done
 
-
 # bspwm config
-bspc config remove_unplugged_monitors   true
-bspc config remove_disabled_monitors    true
-bspc config top_padding                 5
-bspc config right_padding               5
-bspc config left_padding                5
-bspc config bottom_padding              5
-bspc config border_width                1
-bspc config border_radius               10
-bspc config window_gap                  0
-bspc config split_ratio                 0.5
-bspc config single_monocle              true
-bspc config borderless_monocle          false
-bspc config gapless_monocle             false
-bspc config focus_follows_pointer       true
-bspc config pointer_follows_focus       false
-bspc config pointer_motion_interval     5
-bspc config pointer_modifier            mod4
-bspc config pointer_action1             move
-bspc config pointer_action2             resize_corner
-bspc config pointer_action3             resize_side
+bspc config external_rules_command "$HOME"/.config/bspwm/src/ExternalRules
 
-sh "$DIR/color-scheme"
+bspc config window_gap                2
+bspc config split_ratio               0.51
+bspc config single_monocle            true
+bspc config borderless_monocle        false
+bspc config gapless_monocle           false
+
+bspc config focus_follows_pointer     true
+bspc config pointer_follows_focus     false
+bspc config pointer_motion_interval   5
+bspc config pointer_modifier          mod4
+bspc config pointer_action1           move
+bspc config pointer_action2           resize_side
+bspc config pointer_action3           resize_corner
+
+bspc config normal_border_color       "#181825"
+bspc config active_border_color       "#f38ba8"
+bspc config focused_border_color      "#cba6f7"
+bspc config presel_feedback_color     "#89b4fa"
+
 
 # Display Setup
-# export DISPLAY=":0"
+export DISPLAY=":0"
 
-# if ! xrandr --query | grep -q "1920x1080"; then
-#     xrandr --newmode "1920x1080" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync
-#     xrandr --addmode DP-1 "1920x1080"
-#     xrandr --output DP-1 --mode "1920x1080"
-# fi
+if ! xrandr --query | grep -q "1920x1080"; then
+    xrandr --newmode "1920x1080" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync
+    xrandr --addmode DP-1 "1920x1080"
+    xrandr --output DP-1 --mode "1920x1080"
+fi
 
 # Wallpaper
 sh "$HOME/.fehbg"
 
-# Function to kill a process if it's running
-killprocess() {
-    local process_name="$1"
-    if [[ `pidof $process_name` ]]; then
-        pkill $process_name
-    fi
-}
+processes=("sxhkd" "dunst" "easyeffects")
 
-# Keyboard Setup
-killprocess "sxhkd"
+for process in "${processes[@]}"; do
+    if pgrep -f "$process"; then
+        pkill -f "$process" > /dev/null; sleep 0.25
+    fi
+done
+
+# Reload sxhkd daemon
 sxhkd -c "$DIR/sxhkdrc" &
 
-# Notification Setup
-killprocess "dunst"
+# Launch dunst notification daemon
 dunst -config "$DIR"/dunstrc &
 
-# Cursor
+# EasyEffect (Sound Effect)
+easyeffects --gapplication-service &
+
+# Fix cursor
 xsetroot -cursor_name left_ptr

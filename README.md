@@ -24,13 +24,7 @@ This repository contains dotfiles for configuring various components of a GNU/Li
 
 ## Installation
 
-1. Install [Git](https://git-scm.com/) if you don't have it:
-
-   ```bash
-   sudo pacman -S git
-   ```
-
-2. Clone this repository:
+1. Clone this repository:
 
    ```bash
    git clone git@github.com:xArcGit/dotfiles.git
@@ -42,13 +36,13 @@ This repository contains dotfiles for configuring various components of a GNU/Li
    git clone https://github.com/xArcGit/dotfiles.git
    ```
 
-3. Navigate to the dotfiles directory:
+2. Navigate to the dotfiles directory:
 
    ```bash
    cd dotfiles
    ```
 
-4. Copy the dotfiles to your home directory:
+3. Copy the dotfiles to your home directory:
 
    ```bash
    cp -r config/* ~/.config
@@ -56,62 +50,26 @@ This repository contains dotfiles for configuring various components of a GNU/Li
    ```bash
    cp -r home/* ~/
    ```
-    - check [Theme](theme/Readme.md)
 
-5. Install the required packages
 
-6. Enable the display manager:
-
-   ```bash
-   sudo systemctl enable ly.service
-   ```
-
-7. Restart your computer.
-
-8. You're done! Now you can enjoy a fully-featured floating/tiling window manager on your GNU/Linux computer.
+4. Install the required packages
+  - check [Theme](theme/Readme.md)
 
 ## Color Schemes
-
-Use `Super` + `Alt` + `t` to change the color scheme.
 
 ### [Catppuccin](https://catppuccin.com/)
 
 <p align="center">
-  <img src="images/catppuccin/01.png" width="30%">
-  <img src="images/catppuccin/02.png" width="30%">
-  <img src="images/catppuccin/03.png" width="30%">
+  <img src="images/01.png" width="30%">
+  <img src="images/02.png" width="30%">
+  <img src="images/03.png" width="30%">
 </p>
 <p align="center">
-  <img src="images/catppuccin/04.png" width="30%">
-  <img src="images/catppuccin/05.png" width="30%">
-  <img src="images/catppuccin/06.png" width="30%">
+  <img src="images/04.png" width="30%">
+  <img src="images/05.png" width="30%">
+  <img src="images/06.png" width="30%">
 </p>
 
-### [Everblush](https://everblush.github.io/)
-
-<p align="center">
-  <img src="images/everblush/01.png" width="30%">
-  <img src="images/everblush/02.png" width="30%">
-  <img src="images/everblush/03.png" width="30%">
-</p>
-<p align="center">
-  <img src="images/everblush/04.png" width="30%">
-  <img src="images/everblush/05.png" width="30%">
-  <img src="images/everblush/06.png" width="30%">
-</p>
-
-### [Tokyo Night]()
-
-<p align="center">
-  <img src="images/tokyo-night/01.png" width="30%">
-  <img src="images/tokyo-night/02.png" width="30%">
-  <img src="images/tokyo-night/03.png" width="30%">
-</p>
-<p align="center">
-  <img src="images/tokyo-night/04.png" width="30%">
-  <img src="images/tokyo-night/05.png" width="30%">
-  <img src="images/tokyo-night/06.png" width="30%">
-</p>
 
 ## Contributing
 

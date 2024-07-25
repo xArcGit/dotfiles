@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-DIR="$HOME/.config/bspwm/rofi/launchers/"
-THEME='style'
-
-rofi \
-    -show drun -theme "$DIR/$THEME.rasi"

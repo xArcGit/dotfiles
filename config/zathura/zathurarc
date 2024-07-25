@@ -28,10 +28,13 @@ set guioptions none
 set scroll-step 40
 
 # font size
-set font "Fira Code 15"
+set font "Maple Mono 14"
 
 # clipboard configurations
 set selection-clipboard clipboard
+
+# Invert screen colors
+set recolor 
 
 # mappings
 
