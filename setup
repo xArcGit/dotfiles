@@ -13,9 +13,8 @@ date=$(date +%Y%m%d-%H%M%S)
 logo() {
 
 	local text="${1:?}"
-	echo -en "
-  	dotfiles\n\n"
-	printf ' %s [%s%s %s%s %s]%s\n\n' "${CRE}" "${CNC}" "${CYE}" "${text}"
+	echo -en ""
+	printf '%s[%s%s %s%s %s]%s\n\n' "${CRE}" "${CNC}" "${CYE}" "${text}"
 }
 
 # Check if this script is run as root
