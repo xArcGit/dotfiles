@@ -43,15 +43,11 @@ This repository contains dotfiles for configuring various components of a GNU/Li
    cd dotfiles
    ```
 
-3. Copy the dotfiles to your home directory:
-
+3. Run script:
    ```bash
-   cp -r config/* ~/.config
+   chmod +x setup
+   ./setup
    ```
-   ```bash
-   cp -r home/* ~/
-   ```
-
 
 4. Install the required packages
   - check [Theme](theme/Readme.md)
