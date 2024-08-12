@@ -14,9 +14,9 @@ super + @space
 
 #####
 
-# Apps (browser, editor, filemanager, obsidian, whatsapp, discord, novelwriter, postman)
-shift + alt + {b,c,n,o,w,d,n,p}
-	OpenApps {--browser,--editor,--filemanager,--obsidian,--whatsapp,--discord,--novelwriter,--postman}
+# Apps (browser, editor, filemanager, obsidian, whatsapp, discord, novelwriter, postman, floorp(firefox))
+shift + alt + {b,c,n,o,w,d,n,p,f}
+	OpenApps {--browser,--editor,--filemanager,--obsidian,--whatsapp,--discord,--novelwriter,--postman,--browser-dev}
 
 # Terminal apps (ranger, nvim, spotify_player, bpytop)
 shift + alt + {r,v,k,t}
@@ -31,7 +31,7 @@ alt + @space
 
 # Scratchpad
 super + alt + o
-	tdrop -a -w 70% -h 35% -y 0 -x 15%  --class scratch kitty --class=scratch
+	tdrop -a -w 70% -h 35% -y 0 -x 15%  --class scratch alacritty --class=scratch
 
 # Power off, Reboot, Log out, Lockscreen, kill an app
 ctrl + super + alt + {p,r,q,l,k}

@@ -1,3 +1,7 @@
+[env]
+TERM = "xterm-256color"
+
+
 [[colors.indexed_colors]]
 color = "0xf28fad"
 index = 16
@@ -37,16 +41,20 @@ style = "Beam"
 size = 9.0
 
 [font.bold]
-family = "JetBrains Mono"
+family = "Maple Mono"
 
 [font.bold_italic]
-family = "JetBrains Mono"
+family = "Maple Mono"
 
 [font.italic]
-family = "JetBrains Mono"
+family = "Maple Mono"
 
 [font.normal]
-family = "JetBrains Mono"
+family = "Maple Mono"
 
 [window]
 opacity = 0.8
+
+[window.padding]
+x = 0
+y = 4

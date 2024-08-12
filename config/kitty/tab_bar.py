@@ -25,20 +25,20 @@ def hex_to_int(hex_color: str) -> int:
 opts = get_options()
 
 BG_COLOR: Dict[str, str] = {
-  "flamingo": "#f2cdcd",
-"pink": "#f5c2e7",
-"maroon": "#eba0ac",
-"peach": "#fab387",
-"yellow": "#f9e2af",
-"green": "#a6e3a1",
-"teal": "#94e2d5",
-"sapphire": "#74c7ec",
-"blue": "#89b4fa",
-"lavender": "#b4befe"
+    "flamingo": "#f2cdcd",
+    "pink": "#f5c2e7",
+    "maroon": "#eba0ac",
+    "peach": "#fab387",
+    "yellow": "#f9e2af",
+    "green": "#a6e3a1",
+    "teal": "#94e2d5",
+    "sapphire": "#74c7ec",
+    "blue": "#89b4fa",
+    "lavender": "#b4befe",
 }
 
 FG_COLOR: Dict[str, str] = {
-  "crust": "#11111b",
+    "crust": "#11111b",
 }
 
 chosen_colors_fg = []

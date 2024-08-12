@@ -15,7 +15,7 @@ separator_height = 1
 padding = 4
 horizontal_padding = 8
 frame_width = 1
-frame_color = "#1e1e2e"
+frame_color = "#181825"
 separator_color = "#6c7086"
 
 font = JetBrains Mono 9
@@ -50,15 +50,15 @@ mouse_right_click = close_all
 
 [urgency_low]
 timeout = 3
-background = "#1e1e2e"
+background = "#181825"
 foreground = "#cdd6f4"
 
 [urgency_normal]
 timeout = 6
-background = "#1e1e2e"
+background = "#181825"
 foreground = "#cdd6f4"
 
 [urgency_critical]
 timeout = 0
-background = "#1e1e2e"
+background = "#181825"
 foreground = "#cdd6f4"

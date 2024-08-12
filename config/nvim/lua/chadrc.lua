@@ -27,7 +27,7 @@ local function get_header()
     local randomHeader = headers[randomName]
     return randomHeader
   else
-    return headers["nvchad"]
+    return headers["nvim"]
   end
 end
 

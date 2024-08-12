@@ -40,6 +40,9 @@ case "$1" in
     --browser)
         brave
     ;;
+    --browser-dev)
+      floorp
+    ;;
     --editor)
         code
     ;;
@@ -53,7 +56,7 @@ case "$1" in
         vesktop
     ;;
   --novelwriter)
-    novelwriter
+        novelwriter
     ;;
     --whatsapp)
         whatsdesk --disable-gpu
