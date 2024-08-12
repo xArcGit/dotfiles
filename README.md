@@ -9,6 +9,7 @@
 This repository contains dotfiles for configuring various components of a GNU/Linux system, including window managers, terminals, file managers, browsers, editors, and more.
 
 ### Included Components:
+<img src="images/01.png" width="65%" align="right">
 
 | **Component**         | **Name**                                      |
 | :-------------------- | :-------------------------------------------- |
