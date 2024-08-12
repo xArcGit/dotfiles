@@ -74,7 +74,7 @@ clear
 # Install packages
 logo "Installing needed packages"
 
-dependencies=(alacritty kitty bash bspwm dragon-drop dunst feh git gtk-engine-murrine gvfs gvfs-afc gvfs-mtp gvfs-smb htop zsh neofetch brave-bin lxappearance-gtk3 mpc mpv ncmpcpp nemo neovim networkmanager pamixer pavucontrol qogir-icon-theme ranger rofi scrot sed sxhkd udisks2 ttf-roboto-mono ttf-roboto-mono-nerd ttf-ubuntu-font-family noto-fonts-emoji ttf-jetbrains-mono ttf-maple unzip xclip xdg-user-dirs-gtk xorg-xinit zathura zathura-pdf-mupdf zip oh-my-posh pactl alsa-utils xclip sweet-gtk-theme-dark bibata-cursor-theme)
+dependencies=(alacritty kitty bash bspwm dragon-drop dunst feh git gtk-engine-murrine gvfs gvfs-afc gvfs-mtp gvfs-smb htop zsh neofetch brave-bin lxappearance-gtk3 mpv nemo neovim networkmanager pamixer pavucontrol qogir-icon-theme ranger rofi scrot sed sxhkd udisks2 ttf-roboto-mono ttf-roboto-mono-nerd ttf-ubuntu-font-family noto-fonts-emoji ttf-jetbrains-mono ttf-maple unzip xclip xdg-user-dirs-gtk xorg-xinit zathura zathura-pdf-mupdf zip oh-my-posh pactl alsa-utils xclip sweet-gtk-theme-dark bibata-cursor-theme)
 
 is_installed() {
 	pacman -Qi "$1" &>/dev/null
