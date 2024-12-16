@@ -1,24 +1,4 @@
-# Set the GPG_TTY to be the same as the TTY, either via the env var
-# or via the tty command.
-if [ -n "$TTY" ]; then
-  export GPG_TTY=$(tty)
-else
-  export GPG_TTY="$TTY"
-fi
-
-PATH="$HOME/.go/bin:$PATH"
-if [[ -f "/opt/homebrew/bin/brew" ]] then
-  # If you're using macOS, you'll want this enabled
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-
-export EDITOR=nvim
-
-# SSH_AUTH_SOCK set to GPG to enable using gpgagent as the ssh agent.
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
-
-## Added by Zinit's installer
+# Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
     command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
@@ -30,6 +10,9 @@ fi
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Adding Prompt
+eval "$(starship init zsh)"
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
@@ -54,16 +37,11 @@ zinit snippet OMZP::command-not-found
 autoload -Uz compinit && compinit
 zinit cdreplay -q
 
-# Adding Prompt
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.json)"
-
 # Keybindings
 bindkey -e
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 bindkey '^[w' kill-region
-
-zle_highlight+=(paste:none)
 
 # History
 HISTSIZE=5000
@@ -89,7 +67,7 @@ setopt complete_in_word
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa --tree --only-dirs --level=1 $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa --tree --only-dirs --level=2 $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
@@ -99,16 +77,16 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-
 alias update="Updates --print-updates && Updates --update-system"
-alias clean="sudo pacman -Scc --noconfirm && paru -Sc --noconfirm && yay -Sc --noconfirm"
+alias clean="sudo pacman -Scc --noconfirm && yay -Sc --noconfirm"
 
-alias h='bpytop'
-alias f='ranger'
+alias h='htop'
+alias f='yazi'
 alias z='zathura'
 alias c='bat --style=plain --theme="Catppuccin Mocha"'
 alias v='nvim'
 alias s='spotify_player'
+alias m='mocp'
 alias cl="clear"
 alias q='exit'
 
@@ -120,8 +98,8 @@ alias wget="wget -c"
 alias fs="df --si"
 alias zshrc="v $HOME/.zshrc"
 alias zed='zeditor'
-alias ani='ani-cli'
-alias manga='mangal'
+alias ani='ani-cli --dub'
+alias rm='rm -i'
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -129,9 +107,6 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Export
 export FZF_DEFAULT_OPTS=" \
---color=bg:#1e1e2e,bg+:#313244 \
---color=fg:#cdd6f4,fg+:#cdd6f4 \
---color=spinner:#f5e0dc,marker:#f38ba8,pointer:#f5e0dc \
---color=hl:#f38ba8,hl+:#f38ba8 \
---color=header:#f38ba8,info:#8aadf4,prompt:#cba6f7"
-
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"

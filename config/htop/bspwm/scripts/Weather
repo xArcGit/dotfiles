@@ -1,0 +1,57 @@
+#!/bin/bash
+
+## Weather data
+KEY="4ab8d6e70cae75fd5f066277ae8ef4a6"
+ID="1273294"
+UNIT="metric"
+
+
+weather=$(curl -sf "http://api.openweathermap.org/data/2.5/weather?APPID=${KEY}&id=${ID}&units=${UNIT}")
+
+if [ ! -z "${weather}" ]; then
+    weather_temp=$(echo "${weather}" | jq ".main.temp" | cut -d "." -f 1)
+    weather_icon_code=$(echo "${weather}" | jq -r ".weather[].icon" | head -1)
+
+    # Big long if statement of doom
+    if [ "${weather_icon_code}" == "50d" ]; then
+        weather_icon=" "
+        weather_hex="#84afdb"
+    elif [ "${weather_icon_code}" == "50n" ]; then
+        weather_icon=" "
+        weather_hex="#84afdb"
+    elif [ "${weather_icon_code}" == "01d" ]; then
+        weather_icon=" "
+        weather_hex="#ffd86b"
+    elif [ "${weather_icon_code}" == "01n" ]; then
+        weather_icon=" "
+        weather_hex="#fcdcf6"
+    elif [ "${weather_icon_code}" == "02d" ] || [ "${weather_icon_code}" == "03d" ] || [ "${weather_icon_code}" == "04d" ]; then
+        weather_icon=" "
+        weather_hex="#adadff"
+    elif [ "${weather_icon_code}" == "02n" ] || [ "${weather_icon_code}" == "03n" ] || [ "${weather_icon_code}" == "04n" ]; then
+        weather_icon=" "
+        weather_hex="#adadff"
+    elif [ "${weather_icon_code}" == "09d" ] || [ "${weather_icon_code}" == "10d" ]; then
+        weather_icon=" "
+        weather_hex="#6b95ff"
+    elif [ "${weather_icon_code}" == "09n" ] || [ "${weather_icon_code}" == "10n" ]; then
+        weather_icon=" "
+        weather_hex="#6b95ff"
+    elif [ "${weather_icon_code}" == "11d" ] || [ "${weather_icon_code}" == "11n" ]; then
+        weather_icon=""
+        weather_hex="#ffeb57"
+    elif [ "${weather_icon_code}" == "13d" ] || [ "${weather_icon_code}" == "13n" ]; then
+        weather_icon=" "
+        weather_hex="#e3e6fc"
+    elif [ "${weather_icon_code}" == "40d" ] || [ "${weather_icon_code}" == "40n" ]; then
+        weather_icon=" "
+        weather_hex="#84afdb"
+    else
+        weather_icon=" "
+        weather_hex="#adadff"
+    fi
+    echo "${weather_icon} ${weather_temp}°C"
+else
+    echo " --°C"
+fi
+

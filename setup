@@ -65,7 +65,7 @@ logo "Installing yay"
 if command -v yay &>/dev/null; then
 	echo "Yay is installed in your system"
 else
-	sudo pacman -S --needed --noconfirm base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd ..
+	sudo pacman -S --needed --noconfirm git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm && cd ..
 fi
 sleep 2
 clear
@@ -73,7 +73,7 @@ clear
 # Install packages
 logo "Installing needed packages"
 
-dependencies=(alacritty kitty bash bspwm dragon-drop dunst feh git gtk-engine-murrine gvfs gvfs-afc gvfs-mtp gvfs-smb htop zsh neofetch brave-bin lxappearance-gtk3 mpv nemo neovim networkmanager pamixer pavucontrol qogir-icon-theme ranger rofi scrot sed sxhkd udisks2 ttf-roboto-mono ttf-roboto-mono-nerd ttf-ubuntu-font-family noto-fonts-emoji ttf-jetbrains-mono ttf-maple unzip xclip xdg-user-dirs-gtk xorg-xinit zathura zathura-pdf-mupdf zip oh-my-posh pactl alsa-utils xclip sweet-gtk-theme-dark bibata-cursor-theme)
+dependencies=(kitty bspwm dunst feh gtk-engine-murrine gvfs gvfs-afc gvfs-mtp gvfs-smb htop zsh neofetch lxappearance-gtk3 mpv neovim networkmanager pamixer pavucontrol qogir-icon-theme rofi scrot sed sxhkd udisks2 ttf-roboto-mono ttf-roboto-mono-nerd ttf-ubuntu-font-family noto-fonts-emoji ttf-jetbrains-mono ttf-maple unzip xdg-user-dirs-gtk xorg-xinit zathura zathura-pdf-mupdf pactl alsa-utils xclip sweet-gtk-theme-dark bibata-cursor-theme yazi zen-browser-avx2-bin)
 
 is_installed() {
 	pacman -Qi "$1" &>/dev/null
@@ -83,7 +83,7 @@ is_installed() {
 printf "%s%sChecking for required packages%s\n" "${BLD}" "${CBL}" "${CNC}"
 for paquete in "${dependencies[@]}"; do
 	if ! is_installed "$paquete"; then
-		yay -S --noconfirm "$paquete"
+		yay -S --noconfirm --needed "$paquete"
 		printf "\n"
 	else
 		printf '%s%s is already installed on your system!%s\n' "${CGR}" "$paquete" "${CNC}"
@@ -124,13 +124,11 @@ if [ ! -d "$backup_folder" ]; then
 fi
 
 # Backup configuration folders and individual files
-for item in alacritty bspwm htop bpytop kitty mpv neofetch oh-my-posh paru bat gtk-3.0 gtk-4.0 nvim ranger tmux yay zathura; do
+for item in bspwm htop kitty mpv neofetch paru bat gtk-3.0 gtk-4.0 nvim yazi tmux yay zathura; do
     if [ -d "$HOME/.config/$item" ]; then
-        # If it's a directory, move the entire folder
         mv "$HOME/.config/$item" "$backup_folder/${item}_$date"
         echo "$item folder backed up successfully at $backup_folder/${item}_$date"
     elif [ -f "$HOME/.config/$item" ]; then
-        # If it's a file, move the file
         mv "$HOME/.config/$item" "$backup_folder/${item}_$date"
         echo "$item file backed up successfully at $backup_folder/${item}_$date"
     else
@@ -161,37 +159,24 @@ printf "Copying files to respective directories..\n"
 
 [ ! -d ~/.config ] && mkdir -p ~/.config
 [ ! -d ~/.fonts ] && mkdir -p ~/.fonts
-[ ! -d ~/.themes ] && mkdir -p ~/.themes
-[ ! -d ~/.local/share/applications ] && mkdir -p ~/.local/share/applications
 
 for archivos in ~/dotfiles/config/*; do
 	cp -R "${archivos}" ~/.config/
 	if [ $? -eq 0 ]; then
-		printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
+		printf "%s%s%s folder copied successfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
 	else
-		printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
+		printf "%s%s%s failed to be copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
 		sleep 1
 	fi
 done
 
-# for archivos in ~/dotfiles/themes/*; do
-# 	cp -R "${archivos}" ~/.themes/
-# 	if [ $? -eq 0 ]; then
-# 		printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
-# 	else
-# 		printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
-# 		sleep 1
-# 	fi
-# done
-
-# Copy specific files from dotfiles/home to the home directory
 for file in .fehbg .zshrc .xinitrc .Xresources .gtkrc-2.0 .bg.png; do
-    if [ -f "$HOME/dotfiles/home/$file" ]; then
-        cp -f "$HOME/dotfiles/home/$file" "$HOME"
-        echo "$file copied successfully to $HOME"
-    else
-        echo "$file does not exist in $HOME/dotfiles/home/"
-    fi
+	if [ -f "$HOME/dotfiles/$file" ]; then
+		cp -f "$HOME/dotfiles/$file" "$HOME"
+		echo "$file copied successfully to $HOME"
+	else
+		echo "$file does not exist in $HOME/dotfiles/"
+	fi
 done
 
 printf "%s%sDone!\n\n" "${BLD}" "${CGR}" "${CNC}"

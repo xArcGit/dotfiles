@@ -32,7 +32,6 @@ BG_COLOR: Dict[str, str] = {
     "yellow": "#f9e2af",
     "green": "#a6e3a1",
     "teal": "#94e2d5",
-    "sapphire": "#74c7ec",
     "blue": "#89b4fa",
     "lavender": "#b4befe",
 }
@@ -93,7 +92,12 @@ def get_spotify_info() -> str:
             spotify_bus, "org.freedesktop.DBus.Properties"
         )
         metadata = spotify_properties.Get("org.mpris.MediaPlayer2.Player", "Metadata")
-        status += f"{metadata.get('xesam:title', '')}"
+        title = metadata.get("xesam:title", "")
+        if len(title) > 24:
+            status += f"{title[:10]}...{title[-10:]}"
+        else:
+            status += title
+
     except Exception:
         status = ""
     return status
