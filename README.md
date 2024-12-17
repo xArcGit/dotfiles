@@ -25,8 +25,6 @@ This repository contains dotfiles for configuring various components of a GNU/Li
 
 ## Installation
 
-> <span style="color:red;">⚠️ **Warning**</span>: This setup script is designed for Arch Linux and its derivatives. Running it on other distributions may cause unexpected behavior or system breakage.
-> 
 > <span style="color:red;">⚠️ **Warning**</span>: Ensure you have the following dependencies installed before running the setup script:
 >
 > ```bash
@@ -34,7 +32,10 @@ This repository contains dotfiles for configuring various components of a GNU/Li
 > ```
 >
 > ❗ Failure to install these dependencies may result in an incomplete or broken setup.
-
+>
+> <span style="color:red;">⚠️ **Warning**</span>: This setup script is designed for Arch Linux and its derivatives. Running it on other distributions may cause unexpected behavior or system breakage.
+>
+ 
 1. Clone this repository:
 
    ```bash
