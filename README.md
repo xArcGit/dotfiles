@@ -20,14 +20,20 @@ This repository contains dotfiles for configuring various components of a GNU/Li
 | **Text Editor**       | [nvim](https://neovim.io/)                                  |
 | **PDF Viewer**        | [zathura](https://pwmt.org/projects/zathura/)               |
 | **Video Player**      | [mpv](https://mpv.io)                                       |
-| **Music Player**      | [spotify_player](https://github.com/aome510/spotify-player) |
 | **Browser**           | [zen-browser](https://github.com/zen-browser/desktop)       |
-| **System Monitor**    | [htop](https://htop.dev/)                                   |
 | **Display Manager**   | [ly](https://github.com/fairyglade/ly)                      |
 
 ## Installation
 
-> **Warning**: This setup script is designed for Arch Linux and its derivatives. Running it on other distributions may cause unexpected behavior or system breakage.
+> <span style="color:red;">⚠️ **Warning**</span>: This setup script is designed for Arch Linux and its derivatives. Running it on other distributions may cause unexpected behavior or system breakage.
+> 
+> <span style="color:red;">⚠️ **Warning**</span>: Ensure you have the following dependencies installed before running the setup script:
+>
+> ```bash
+> kitty bspwm dunst feh htop zsh neofetch lxappearance-gtk3 mpv neovim pamixer qogir-icon-theme rofi sxhkd ttf-roboto-mono ttf-roboto-mono-nerd ttf-ubuntu-font-family noto-fonts-emoji ttf-jetbrains-mono ttf-maple zathura zathura-pdf-mupdf pactl alsa-utils xclip sweet-gtk-theme-dark bibata-cursor-theme yazi fastcompmgr-git ly
+> ```
+>
+> ❗ Failure to install these dependencies may result in an incomplete or broken setup.
 
 1. Clone this repository:
 
