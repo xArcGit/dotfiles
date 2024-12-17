@@ -1,0 +1,244 @@
+{
+  // Explorer settings
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
+  // Extensions settings
+  "extensions.ignoreRecommendations": true,
+  // Window settings
+  "window.menuBarVisibility": "hidden",
+  "window.commandCenter": false,
+  // Workbench settings
+  "workbench.editor.showTabs": "none",
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.activityBar.iconClickBehavior": "toggle",
+  "workbench.layoutControl.enabled": false,
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
+  "workbench.productIconTheme": "material-product-icons",
+  // Editor settings
+  "editor.minimap.enabled": false,
+  "editor.stickyScroll.enabled": false,
+  "editor.foldingImportsByDefault": true,
+  "editor.formatOnSave": true,
+  "editor.scrollbar.vertical": "hidden",
+  "workbench.editor.titleScrollbarSizing": "large",
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.scrollbar.horizontalScrollbarSize": 0,
+  "editor.lineNumbers": "off",
+  "editor.glyphMargin": false,
+  "editor.folding": false,
+  "editor.largeFileOptimizations": true,
+  "editor.padding.top": 10,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.suggest.showStatusBar": false,
+  "editor.suggest.showIcons": false,
+  "editor.parameterHints.enabled": false,
+  "editor.hover.enabled": false,
+  "editor.renderLineHighlightOnlyWhenFocus": true,
+  "editor.guides.indentation": false,
+  "editor.indentSize": "tabSize",
+  "editor.tabSize": 2,
+  "editor.letterSpacing": 0.5,
+  "editor.wordWrap": "on",
+  "editor.formatOnPaste": true,
+  "editor.renderWhitespace": "none",
+  "editor.cursorBlinking": "solid",
+  "editor.links": false,
+  "editor.tabCompletion": "on",
+  "editor.snippetSuggestions": "top",
+  "editor.suggestFontSize": 13,
+  "editor.suggest.showInterfaces": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "editor.lightbulb.enabled": "off",
+  "breadcrumbs.enabled": false,
+  // Font settings
+  "editor.fontFamily": "Maple Mono SC NF",
+  "editor.fontVariations": false,
+  "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'cv01', 'cv04'",
+  "editor.fontWeight": "300",
+  "editor.lineHeight": 20,
+  "editor.fontSize": 13,
+  // Files settings
+  "files.autoSave": "onWindowChange",
+  "files.exclude": {
+    "**/.venv": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/.vscode": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.mypy_cache": true,
+    "**/.cache": true,
+    "**/node_modules": true,
+    "**/bun.lockb": true,
+    "**/yarn.lock": true,
+    "**/package-lock.json": true,
+    "**/.zig-cache": true,
+    "**/zig-out": true,
+    "**/pnpm-lock.yaml": true
+  },
+  // Terminal settings
+  "terminal.integrated.fontFamily": "Maple Mono SC NF",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorBlinking": false,
+  "terminal.integrated.cursorWidth": 2,
+  "terminal.integrated.fontWeight": "normal",
+  "terminal.integrated.enableMultiLinePasteWarning": "auto",
+  // Git settings
+  "git.autofetch": true,
+  "git.autofetchPeriod": 180,
+  "git.autorefresh": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  // TypeScript settings
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  // Markdown settings
+  "markdown.preview.lineHeight": 1.5,
+  "markdown.preview.typographer": true,
+  "markdown.preview.breaks": true,
+  "markdown.preview.fontFamily": "Maple Mono SC NF",
+  // Leetcode settings
+  "leetcode.colorizeProblems": true,
+  "leetcode.workspaceFolder": "/home/death/Leetcode",
+  "leetcode.defaultLanguage": "python3",
+  "leetcode.hint.configWebviewMarkdown": true,
+  "leetcode.editor.shortcuts": [
+    "submit",
+    "test"
+  ],
+  "leetcode.hint.setDefaultLanguage": true,
+  // Language-specific settings
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[zig-lag]": {
+    "editor.defaultFormatter": "ziglang.vscode-zig"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[python]": {
+    "editor.formatOnType": true,
+    "editor.indentSize": "tabSize",
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "zig.path": "zig",
+  // Python
+  "python.languageServer": "Pylance",
+  "ruff.lint.enable": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.defaultInterpreterPath": "/bin/python",
+  // Code actions on save
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports.biome": "explicit",
+    "quickfix.biome": "explicit"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "git.openRepositoryInParentFolders": "never",
+  "workbench.editorAssociations": {
+    "{git,gitlens}:/**/*.{md,csv,svg}": "default"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  // Git
+  "git.defaultCloneDirectory": "/home/death/Documents/projects/",
+  "git.suggestSmartCommit": true,
+  // Comments
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "@",
+      "color": "#A9CF",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": true
+    }
+  ],
+  "svelte.enable-ts-plugin": true,
+  "chat.editing.alwaysSaveWithGeneratedChanges": true,
+  "zig.zls.enabled": "on",
+  // Error Lens
+  "errorLens.statusBarMessageEnabled": true,
+  "errorLens.exclude": [
+    "**/node_modules/**",
+    "**/Leetcode/**"
+  ],
+  "diffEditor.ignoreTrimWhitespace": false,
+  "insertDateString.formatDate": "YYYY-MM-DD",
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  // Theme
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "editor.semanticHighlighting.enabled": true,
+  "terminal.integrated.minimumContrastRatio": 1,
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
+}
